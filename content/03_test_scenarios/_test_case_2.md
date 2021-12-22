@@ -64,3 +64,5 @@ We can find the configuration for this injection in the following file;
 > To learn more about Chaos Engineering, click here.
 
 If we change the `injectPercentage` to `0`, we can stear clear from this error for now.
+
+![Thundra Foresight](/images/_test_scenarios/_test_2/terminal-success.png)
