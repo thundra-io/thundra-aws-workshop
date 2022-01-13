@@ -12,7 +12,6 @@ In this workshop, we will create an example aws lambda function with using serve
 <link rel="stylesheet" href="master.css">
 
 
-<include src="serverless_html_content/languages_tab_bar.html"></include>
 <script>
 includeHTML();
 </script>
