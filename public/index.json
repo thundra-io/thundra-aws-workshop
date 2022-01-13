@@ -1,0 +1,113 @@
+[
+{
+	"uri": "/",
+	"title": "Test Observability with Thundra Foresight",
+	"tags": [],
+	"description": "",
+	"content": " Test Observability with Thundra Foresight Welcome In this workshop you will learn why monitoring your tests matters and how Thundra Foresight elevates your ability to overcome issues that are normally out of your sight.\nLearning Objectives  Deploy an example app Serverless app to AWS Replay your code execution using Thundra APM Understand why Chaos Engineering matters and how Thundra helps you to implement Be able to see an end-to-end trace chart of your integration tests  The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how Thundra helps you to monitor various AWS services. These examples are not intended for use in production environments.  "
+},
+{
+	"uri": "/01_introduction.html",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": " Introduction In this workshop, we\u0026rsquo;re going to launch our distributed application on our local with LocalStack, a tool that emulates AWS services on your machine, and run our tests against it.\nWe\u0026rsquo;ll have three different test scenarios in three different branches for the sake of simplicity and isolation. Then, we\u0026rsquo;ll see the full trace chart of our distributed, end-to-end tests as well as other features that\u0026rsquo;ll help us diagnose the failures. Such as, Time Travel Debugging and Chaos Engineering\u0026hellip;\nPrerequisite We should have the following requirements set up on our computer.\n AWS CLI Node.js 10.x+ Python 3.6+ Docker  Source Code The project we\u0026rsquo;re going to use is hosted at https://github.com/thundra-io/serverless-blog-site-workshop.\nLet\u0026rsquo;s clone our project and talk about what it is in the next page.\n# Change the URL to HTTPS if you don\u0026#39;t have SSH configured for git. # https://github.com/thundra-io/serverless-blog-site-workshop.git git clone git@github.com:thundra-io/serverless-blog-site-workshop.git"
+},
+{
+	"uri": "/01_introduction/_project_structure.html",
+	"title": "Project Endpoints",
+	"tags": [],
+	"description": "",
+	"content": " Project Endpoints We have a simple blog post application where a blog post goes through different stages in a distributed application. Easiest way to understand what\u0026rsquo;s going on is to talk about the endpoints we have.\nAdd Blog Post The basic architecture behind this endpoint looks like this. We have an API Gateway that points to an AWS Lambda, which passes the incoming request to another lambda to process it through an SQS Queue.\nThis processor lambda then writes the post to a DynamoDB Table and triggers an SNS Topic to send out a notification to the owner. Once the write to DynamoDB finishes, it\u0026rsquo;ll trigger an event to replicate the post to an ElasticSearch Index to make our searching capabilities much easier.\nReview Blog Post In this endpoint, we\u0026rsquo;ll get the blog post we\u0026rsquo;ve published before and update it\u0026rsquo;s state to REVIEWED. You can see the new trace as an extension to the previous trace.\nPublish Blog Post In this endpoint, we\u0026rsquo;ll get the blog post we\u0026rsquo;ve published before and update it\u0026rsquo;s state to PUBLISHED. You can see the new trace as an extension to the previous trace.\nSearch Blog Post In this endpoint, we have a simple AWS Lambda to perform search in our ElasticSearch Index.\nNext Step Now that we have an understanding what our application is about, we can move on.\n"
+},
+{
+	"uri": "/02_setting_up.html",
+	"title": "Setting Up",
+	"tags": [],
+	"description": "",
+	"content": " Setting Up Before we go on further, we need one more thing.\nWe need to open up an account at Thundra and create a project in Thundra Foresight.\nOnce this is done, we can get the API Key and the Project ID to set them in the Makefile of our project.\n"
+},
+{
+	"uri": "/03_test_scenarios.html",
+	"title": "Test Scenarios",
+	"tags": [],
+	"description": "",
+	"content": " Test Scenarios Now that we have our project\u0026rsquo;s setup on Thundra Foresight and got our credentials, we can set them in our project.\nIf you haven't cloned our project yet, you can do by running the code below. # Change the URL to HTTPS if you don\u0026#39;t have SSH configured for git. # https://github.com/thundra-io/serverless-blog-site-workshop.git git clone git@github.com:thundra-io/serverless-blog-site-workshop.git In our project, let\u0026rsquo;s open the Makefile. Update THUNDRA_APIKEY and THUNDRA_AGENT_TEST_PROJECT_ID.\nYou might need to update the Makefile as we go over the test scenarios and change branches. So, it might be easier to save it somewhere we can copy and paste easily.  "
+},
+{
+	"uri": "/04_integration_options.html",
+	"title": "Integration Options of APM",
+	"tags": [],
+	"description": "",
+	"content": " Thundra APM Integration Integration Options of Thundra APM into AWS Lambda Thundra allows users to trace their Lambda functions by plugging instrumentation libraries into their functions. Some users also want to have insights about their serverless application with minimum effort. If you\u0026rsquo;re one of these users, you can plug Thundra into your AWS account and start monitoring all of your functions in your account within a couple of minutes.\nIn this section we\u0026hellip;..\n"
+},
+{
+	"uri": "/02_setting_up/_1_creating_a_thundra_account.html",
+	"title": "Creating a Thundra Account",
+	"tags": [],
+	"description": "",
+	"content": " Thundra Account Currently, a Thundra account is an umbrella account that\u0026rsquo;ll give you access to the three sub-product Thundra has.\nTo sign up, you can simply go to start.thundra.io and choose your preffered way of authentication.\nAfter signing in, you\u0026rsquo;ll see a screen where you have to choose different products. In this workshop, we\u0026rsquo;ll primarily focus on Thundra Foresight.\nThundra Foresight is our CI and Test monitoring tool that\u0026rsquo;s powered by Thundra APM behind the curtain. With Thundra Foresight, you\u0026rsquo;ll be able to see your CI status, test runs, and end-to-end test traces in detail.\nOnce our account is created, let\u0026rsquo;s choose Thundra Foresight for now and get to work.\n"
+},
+{
+	"uri": "/03_test_scenarios/_test_case_1.html",
+	"title": "Test Case #1",
+	"tags": [],
+	"description": "",
+	"content": " Test Case #1 In our Test Case #1, we\u0026rsquo;ll try to uncover an error in one of our lambdas using the capabilities of Thundra Foresight.\nLet\u0026rsquo;s checkout to the Test #1\u0026rsquo;s branch by running the following command.\ngit checkout test-js-summit-2021/test-1 At this point, make sure to set your credentials correct in the Makefile and that Docker is ready and available.\nLet\u0026rsquo;s start by creating a virtual environment for Python as we\u0026rsquo;ll need for both LocalStack and AWS Local CLI.\n# To create a virtual environment python3 -m venv .venv # and then to activate it . .venv/bin/activate Once it\u0026rsquo;s activated, we should see (.venv) at the beginning of our shell session.\nLet\u0026rsquo;s install the dependencies.\nmake install And then, run the tests with;\nmake test After some time, we can see that our test has failed.\nAnd on Foresight, outcome is as such;\nWhen we click the repository details, we\u0026rsquo;ll encounter a page where our tests are sorted for various filters. We can click the specific test on the left handside to get to the details.\nIn there, let\u0026rsquo;s click to the Trace Map button to see our test\u0026rsquo;s activity.\nIn the opened window, we see the trace map. Let\u0026rsquo;s click the lambda that\u0026rsquo;s marked as red.\nThis will open up the chart and if we click the lambda\u0026rsquo;s span at the top, we\u0026rsquo;ll get the request/response data from this invocation.\nAs you can see, the error we got is pretty clear. Let\u0026rsquo;s check the code and see what\u0026rsquo;s happening for this lambda. The handler for this lambda is in blogApi.js.\nIn line 46, we see that there is a typo in one of that status.\nLet\u0026rsquo;s fix the status as SUBMITTED and run the tests again. This time, our test should pass. Again, you can see the outcome on Thundra Foresight as before.\n"
+},
+{
+	"uri": "/02_setting_up/_2_creating_a_project.html",
+	"title": "Creating a Project",
+	"tags": [],
+	"description": "",
+	"content": " Thundra Foresight When you enter Thundra Foresight for the first time, you\u0026rsquo;ll encounter the following page.\nLet\u0026rsquo;s create our first project. Click the Connect Repositories and enter your project name.\nOnce our project is created, we\u0026rsquo;ll welcomed by various integration methods. Right now, we\u0026rsquo;re only focused on Test Monitoring, so let\u0026rsquo;s select that.\nDown below, let\u0026rsquo;s select Manual Integrations.\nHere, we have a quick access to our credentials. Let\u0026rsquo;s save them somewhere and continue.\nIf you\u0026rsquo;ve missed this page, you can always click the Project Settings icon. That way we can get our credentials whenever we want.\n"
+},
+{
+	"uri": "/03_test_scenarios/_test_case_2.html",
+	"title": "Test Case #2",
+	"tags": [],
+	"description": "",
+	"content": " Test Case #2 In our Test Case #2, we\u0026rsquo;ll try to uncover another error in one of our lambdas using the capabilities of Thundra Foresight.\nLet\u0026rsquo;s clear what we\u0026rsquo;ve done in Test #1 and checkout to Test #2\u0026rsquo;s branch with the following command.\ngit checkout test-js-summit-2021/test-2 Again, make sure to set your credentials correct in the Makefile and that Docker is ready and available.\n If you\u0026rsquo;ve already in a virtual environment, you can skip this part.\n Let\u0026rsquo;s start by creating a virtual environment for Python as we\u0026rsquo;ll need for both LocalStack and AWS Local CLI.\n# To create a virtual environment python3 -m venv .venv # and then to activate it . .venv/bin/activate Once it\u0026rsquo;s activated, we should see (.venv) at the beginning of our shell session.\nLet\u0026rsquo;s install the dependencies.\nmake install And then, run the tests with;\nmake test After some time, we can see that our test has failed.\nAgain, if we follow the same route on Thundra Foresight and open our Trace Map, we can see the following outcome.\nLet\u0026rsquo;s click the erroneous lambda and see what went wrong this time.\nNow, we see a custom error message that says Elasticsearch Chaos Injected!. This is injected by Thundra agent to mimic a failure in our system.\nWe can find the configuration for this injection in the following file;\n To learn more about Chaos Engineering, click here.\n If we change the injectPercentage to 0, we can stear clear from this error for now.\n"
+},
+{
+	"uri": "/03_test_scenarios/_test_case_3.html",
+	"title": "Test Case #3",
+	"tags": [],
+	"description": "",
+	"content": " Test Case #3 In our Test Case #3, we\u0026rsquo;ll try to uncover another error in one of our lambdas using the capabilities of Thundra Foresight.\nLet\u0026rsquo;s clear what we\u0026rsquo;ve done in Test #3 and checkout to Test #3\u0026rsquo;s branch with the following command.\ngit checkout test-js-summit-2021/test-3 Again, make sure to set your credentials correct in the Makefile and that Docker is ready and available.\n If you\u0026rsquo;ve already in a virtual environment, you can skip this part.\n Let\u0026rsquo;s start by creating a virtual environment for Python as we\u0026rsquo;ll need for both LocalStack and AWS Local CLI.\n# To create a virtual environment python3 -m venv .venv # and then to activate it . .venv/bin/activate Once it\u0026rsquo;s activated, we should see (.venv) at the beginning of our shell session.\nLet\u0026rsquo;s install the dependencies.\nmake install And then, run the tests with;\nmake test After some time, we can see that our test has failed.\nAgain, if we follow the same route on Thundra Foresight and open our Trace Map, we can see the following outcome.\nSo, normally, we expect our blogPostReplicator to connect ElasticSearch and replicate the given input.\nLet\u0026rsquo;s click the replicator lambda and see what went wrong this time. In the trace chart, we\u0026rsquo;re seeing a little bug icon. Let\u0026rsquo;s click that span.\nHere, we encounter a code section where we play and debug the execution that\u0026rsquo;s happened.\nLet\u0026rsquo;s click the next arrow and see where it went wrong.\n To learn more about Time Travel Debugging, click here.\n Interesting\u0026hellip; The partition variable comes out as 0 and that fails to complete the next action in our flow.\nWhen we check the code, changing if (partition) to if (partition != undefined) will give us the expected behaviour.\nSo, let\u0026rsquo;s find the function in our src/service/blogPostService.js and change the if check.\nLet\u0026rsquo;s run our test again.\nGreat, our test is passing now.\n"
+},
+{
+	"uri": "/04_integration_options/serverless.html",
+	"title": "Serverless",
+	"tags": [],
+	"description": "",
+	"content": "Integrating Thundra APM to your aws lambda function that uses Serverless framework is almast same for all of the languages.\nIn this workshop, we will create an example aws lambda function with using serverless and connect Thundra APM to it.\n   includeHTML(); \n"
+},
+{
+	"uri": "/04_integration_options/aws_cdk.html",
+	"title": "AWS CDK",
+	"tags": [],
+	"description": "",
+	"content": "  includeHTML(); \n"
+},
+{
+	"uri": "/04_integration_options/aws_sam.html",
+	"title": "AWS SAM",
+	"tags": [],
+	"description": "",
+	"content": "  includeHTML(); \n"
+},
+{
+	"uri": "/categories.html",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags.html",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

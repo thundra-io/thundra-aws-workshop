@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test Observability with Thundra Foresight on Thundra Foresight Workshop</title>
+    <link>/</link>
+    <description>Recent content in Test Observability with Thundra Foresight on Thundra Foresight Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 13 Jan 2022 10:42:03 +0300</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Endpoints</title>
+      <link>/01_introduction/_project_structure.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/01_introduction/_project_structure.html</guid>
+      <description>Project Endpoints We have a simple blog post application where a blog post goes through different stages in a distributed application. Easiest way to understand what&amp;rsquo;s going on is to talk about the endpoints we have.
+Add Blog Post The basic architecture behind this endpoint looks like this. We have an API Gateway that points to an AWS Lambda, which passes the incoming request to another lambda to process it through an SQS Queue.</description>
+    </item>
+    
+    <item>
+      <title>Creating a Thundra Account</title>
+      <link>/02_setting_up/_1_creating_a_thundra_account.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/02_setting_up/_1_creating_a_thundra_account.html</guid>
+      <description>Thundra Account Currently, a Thundra account is an umbrella account that&amp;rsquo;ll give you access to the three sub-product Thundra has.
+To sign up, you can simply go to start.thundra.io and choose your preffered way of authentication.
+After signing in, you&amp;rsquo;ll see a screen where you have to choose different products. In this workshop, we&amp;rsquo;ll primarily focus on Thundra Foresight.
+Thundra Foresight is our CI and Test monitoring tool that&amp;rsquo;s powered by Thundra APM behind the curtain.</description>
+    </item>
+    
+    <item>
+      <title>Test Case #1</title>
+      <link>/03_test_scenarios/_test_case_1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/03_test_scenarios/_test_case_1.html</guid>
+      <description>Test Case #1 In our Test Case #1, we&amp;rsquo;ll try to uncover an error in one of our lambdas using the capabilities of Thundra Foresight.
+Let&amp;rsquo;s checkout to the Test #1&amp;rsquo;s branch by running the following command.
+git checkout test-js-summit-2021/test-1 At this point, make sure to set your credentials correct in the Makefile and that Docker is ready and available.
+Let&amp;rsquo;s start by creating a virtual environment for Python as we&amp;rsquo;ll need for both LocalStack and AWS Local CLI.</description>
+    </item>
+    
+    <item>
+      <title>Creating a Project</title>
+      <link>/02_setting_up/_2_creating_a_project.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/02_setting_up/_2_creating_a_project.html</guid>
+      <description>Thundra Foresight When you enter Thundra Foresight for the first time, you&amp;rsquo;ll encounter the following page.
+Let&amp;rsquo;s create our first project. Click the Connect Repositories and enter your project name.
+Once our project is created, we&amp;rsquo;ll welcomed by various integration methods. Right now, we&amp;rsquo;re only focused on Test Monitoring, so let&amp;rsquo;s select that.
+Down below, let&amp;rsquo;s select Manual Integrations.
+Here, we have a quick access to our credentials. Let&amp;rsquo;s save them somewhere and continue.</description>
+    </item>
+    
+    <item>
+      <title>Test Case #2</title>
+      <link>/03_test_scenarios/_test_case_2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/03_test_scenarios/_test_case_2.html</guid>
+      <description>Test Case #2 In our Test Case #2, we&amp;rsquo;ll try to uncover another error in one of our lambdas using the capabilities of Thundra Foresight.
+Let&amp;rsquo;s clear what we&amp;rsquo;ve done in Test #1 and checkout to Test #2&amp;rsquo;s branch with the following command.
+git checkout test-js-summit-2021/test-2 Again, make sure to set your credentials correct in the Makefile and that Docker is ready and available.
+ If you&amp;rsquo;ve already in a virtual environment, you can skip this part.</description>
+    </item>
+    
+    <item>
+      <title>Test Case #3</title>
+      <link>/03_test_scenarios/_test_case_3.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/03_test_scenarios/_test_case_3.html</guid>
+      <description>Test Case #3 In our Test Case #3, we&amp;rsquo;ll try to uncover another error in one of our lambdas using the capabilities of Thundra Foresight.
+Let&amp;rsquo;s clear what we&amp;rsquo;ve done in Test #3 and checkout to Test #3&amp;rsquo;s branch with the following command.
+git checkout test-js-summit-2021/test-3 Again, make sure to set your credentials correct in the Makefile and that Docker is ready and available.
+ If you&amp;rsquo;ve already in a virtual environment, you can skip this part.</description>
+    </item>
+    
+    <item>
+      <title>Serverless</title>
+      <link>/04_integration_options/serverless.html</link>
+      <pubDate>Thu, 13 Jan 2022 10:42:03 +0300</pubDate>
+      
+      <guid>/04_integration_options/serverless.html</guid>
+      <description>Integrating Thundra APM to your aws lambda function that uses Serverless framework is almast same for all of the languages.
+In this workshop, we will create an example aws lambda function with using serverless and connect Thundra APM to it.
+   includeHTML();</description>
+    </item>
+    
+    <item>
+      <title>AWS CDK</title>
+      <link>/04_integration_options/aws_cdk.html</link>
+      <pubDate>Thu, 13 Jan 2022 10:41:56 +0300</pubDate>
+      
+      <guid>/04_integration_options/aws_cdk.html</guid>
+      <description>includeHTML();</description>
+    </item>
+    
+    <item>
+      <title>AWS SAM</title>
+      <link>/04_integration_options/aws_sam.html</link>
+      <pubDate>Thu, 13 Jan 2022 10:41:47 +0300</pubDate>
+      
+      <guid>/04_integration_options/aws_sam.html</guid>
+      <description>includeHTML();</description>
+    </item>
+    
+  </channel>
+</rss>

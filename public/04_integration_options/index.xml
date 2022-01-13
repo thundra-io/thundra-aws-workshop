@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Integration Options of APM on Thundra Foresight Workshop</title>
+    <link>/04_integration_options.html</link>
+    <description>Recent content in Integration Options of APM on Thundra Foresight Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 12 Jan 2022 14:19:47 +0300</lastBuildDate>
+    
+	<atom:link href="/04_integration_options/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Serverless</title>
+      <link>/04_integration_options/serverless.html</link>
+      <pubDate>Thu, 13 Jan 2022 10:42:03 +0300</pubDate>
+      
+      <guid>/04_integration_options/serverless.html</guid>
+      <description>Integrating Thundra APM to your aws lambda function that uses Serverless framework is almast same for all of the languages.
+In this workshop, we will create an example aws lambda function with using serverless and connect Thundra APM to it.
+   includeHTML();</description>
+    </item>
+    
+    <item>
+      <title>AWS CDK</title>
+      <link>/04_integration_options/aws_cdk.html</link>
+      <pubDate>Thu, 13 Jan 2022 10:41:56 +0300</pubDate>
+      
+      <guid>/04_integration_options/aws_cdk.html</guid>
+      <description>includeHTML();</description>
+    </item>
+    
+    <item>
+      <title>AWS SAM</title>
+      <link>/04_integration_options/aws_sam.html</link>
+      <pubDate>Thu, 13 Jan 2022 10:41:47 +0300</pubDate>
+      
+      <guid>/04_integration_options/aws_sam.html</guid>
+      <description>includeHTML();</description>
+    </item>
+    
+  </channel>
+</rss>

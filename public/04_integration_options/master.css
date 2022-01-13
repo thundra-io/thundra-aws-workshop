@@ -1,0 +1,52 @@
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+
+.tabs__buttonn:active{
+    background: #dddddd;
+
+}
+.tabs__buttonn:not(:last-of-type){
+    border-bottom: 1px solid;
+    
+}
+
+.tabs__button--active{
+    font-weight: bold;
+}
+
+
+.tabs__content {
+    padding: 15px;
+    font-size:0.8rem;
+    display: none;
+
+}
+.tabs__content--active {
+   display: block;
+
+}
+.tabs__content > :first-child{
+    margin-top: 0;
+
+}
+
+pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+  }

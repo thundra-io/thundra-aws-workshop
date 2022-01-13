@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Setting Up on Thundra Foresight Workshop</title>
+    <link>/02_setting_up.html</link>
+    <description>Recent content in Setting Up on Thundra Foresight Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/02_setting_up/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating a Thundra Account</title>
+      <link>/02_setting_up/_1_creating_a_thundra_account.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/02_setting_up/_1_creating_a_thundra_account.html</guid>
+      <description>Thundra Account Currently, a Thundra account is an umbrella account that&amp;rsquo;ll give you access to the three sub-product Thundra has.
+To sign up, you can simply go to start.thundra.io and choose your preffered way of authentication.
+After signing in, you&amp;rsquo;ll see a screen where you have to choose different products. In this workshop, we&amp;rsquo;ll primarily focus on Thundra Foresight.
+Thundra Foresight is our CI and Test monitoring tool that&amp;rsquo;s powered by Thundra APM behind the curtain.</description>
+    </item>
+    
+    <item>
+      <title>Creating a Project</title>
+      <link>/02_setting_up/_2_creating_a_project.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/02_setting_up/_2_creating_a_project.html</guid>
+      <description>Thundra Foresight When you enter Thundra Foresight for the first time, you&amp;rsquo;ll encounter the following page.
+Let&amp;rsquo;s create our first project. Click the Connect Repositories and enter your project name.
+Once our project is created, we&amp;rsquo;ll welcomed by various integration methods. Right now, we&amp;rsquo;re only focused on Test Monitoring, so let&amp;rsquo;s select that.
+Down below, let&amp;rsquo;s select Manual Integrations.
+Here, we have a quick access to our credentials. Let&amp;rsquo;s save them somewhere and continue.</description>
+    </item>
+    
+  </channel>
+</rss>

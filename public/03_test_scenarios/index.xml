@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test Scenarios on Thundra Foresight Workshop</title>
+    <link>/03_test_scenarios.html</link>
+    <description>Recent content in Test Scenarios on Thundra Foresight Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/03_test_scenarios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test Case #1</title>
+      <link>/03_test_scenarios/_test_case_1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/03_test_scenarios/_test_case_1.html</guid>
+      <description>Test Case #1 In our Test Case #1, we&amp;rsquo;ll try to uncover an error in one of our lambdas using the capabilities of Thundra Foresight.
+Let&amp;rsquo;s checkout to the Test #1&amp;rsquo;s branch by running the following command.
+git checkout test-js-summit-2021/test-1 At this point, make sure to set your credentials correct in the Makefile and that Docker is ready and available.
+Let&amp;rsquo;s start by creating a virtual environment for Python as we&amp;rsquo;ll need for both LocalStack and AWS Local CLI.</description>
+    </item>
+    
+    <item>
+      <title>Test Case #2</title>
+      <link>/03_test_scenarios/_test_case_2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/03_test_scenarios/_test_case_2.html</guid>
+      <description>Test Case #2 In our Test Case #2, we&amp;rsquo;ll try to uncover another error in one of our lambdas using the capabilities of Thundra Foresight.
+Let&amp;rsquo;s clear what we&amp;rsquo;ve done in Test #1 and checkout to Test #2&amp;rsquo;s branch with the following command.
+git checkout test-js-summit-2021/test-2 Again, make sure to set your credentials correct in the Makefile and that Docker is ready and available.
+ If you&amp;rsquo;ve already in a virtual environment, you can skip this part.</description>
+    </item>
+    
+    <item>
+      <title>Test Case #3</title>
+      <link>/03_test_scenarios/_test_case_3.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/03_test_scenarios/_test_case_3.html</guid>
+      <description>Test Case #3 In our Test Case #3, we&amp;rsquo;ll try to uncover another error in one of our lambdas using the capabilities of Thundra Foresight.
+Let&amp;rsquo;s clear what we&amp;rsquo;ve done in Test #3 and checkout to Test #3&amp;rsquo;s branch with the following command.
+git checkout test-js-summit-2021/test-3 Again, make sure to set your credentials correct in the Makefile and that Docker is ready and available.
+ If you&amp;rsquo;ve already in a virtual environment, you can skip this part.</description>
+    </item>
+    
+  </channel>
+</rss>
