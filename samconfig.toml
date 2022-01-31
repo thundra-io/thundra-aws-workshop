@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "aws-content-demo"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-uxp4yrlm7ls6"
+s3_prefix = "aws-content-demo"
+region = "eu-west-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
