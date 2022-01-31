@@ -132,7 +132,6 @@
       .todo-entity-control{
         float: right; 
         padding: 0px 4px 0px 0px;
-        display: none;
       }
 
       .done {
@@ -263,13 +262,6 @@
   
       id = id || createId();
       node.id = id;
-
-      node.onmouseenter = event => 
-        event.target.firstElementChild.style.display = "block";
-      
-      node.onmouseleave = event => 
-        event.target.firstElementChild.style.display = "none";
-
       node.innerHTML = createTodo(id, todo);
 
       todoUIList.append(node);
