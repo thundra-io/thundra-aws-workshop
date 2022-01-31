@@ -2,20 +2,10 @@ service: thundra-workshop-lambda-sns-writer
 frameworkVersion: '2 || 3'
 
 custom:
-  AWS_S3_BUCKET_NAME: my-test-bucket-w
+  AWS_S3_BUCKET_NAME: <S3 Bucket Name>
   AWS_REGION: eu-west-1
-  AWS_SNS_TOPIC_ARN:
-    Fn::Join:
-      - ''
-      - - 'arn:aws:sns:'
-        - Ref: AWS::Region
-        - ":"
-        - Ref: AWS::AccountId
-        - ":"
-        - Fn::GetAtt:
-          - SnsTopic
-          - TopicName
-  DYNAMODB_WRITER_LAMBDA_ARN: arn:aws:lambda:eu-west-1:790794229430:function:thundra-workshop-lambda-dynamodb-writer-dev-writer
+  AWS_SNS_TOPIC_ARN: <SNS Topic ARN>
+  DYNAMODB_WRITER_LAMBDA_ARN: <DyanmoDB Writer Lambda ARN>
 
 
 provider:

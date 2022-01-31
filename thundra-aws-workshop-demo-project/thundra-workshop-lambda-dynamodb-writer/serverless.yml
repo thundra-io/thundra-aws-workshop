@@ -3,7 +3,7 @@ service: thundra-workshop-lambda-dynamodb-writer
 frameworkVersion: '2 || 3'
 
 custom:
-  DYNAMODB_TABLE_NAME: test-table
+  DYNAMODB_TABLE_NAME: <DYNAMODB TABLE NAME>
   AWS_REGION: 'eu-west-1'
 
 provider:

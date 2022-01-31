@@ -3,8 +3,8 @@ frameworkVersion: '2 || 3'
 
 
 custom:
-  AWS_DYNAMODB_TABLE_NAME: test-table
-  AWS_S3_BUCKET_NAME: my-test-bucket-w
+  AWS_DYNAMODB_TABLE_NAME: <DYNAMODB TABLE NAME>
+  AWS_S3_BUCKET_NAME: <S3 Content Bucket Name>
   AWS_REGION: eu-west-1
 
 
