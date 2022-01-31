@@ -1,0 +1,57 @@
+service: thundra-workshop-lambda-sns-writer
+frameworkVersion: '2 || 3'
+
+custom:
+  AWS_S3_BUCKET_NAME: my-test-bucket-w
+  AWS_REGION: eu-west-1
+  AWS_SNS_TOPIC_ARN:
+    Fn::Join:
+      - ''
+      - - 'arn:aws:sns:'
+        - Ref: AWS::Region
+        - ":"
+        - Ref: AWS::AccountId
+        - ":"
+        - Fn::GetAtt:
+          - SnsTopic
+          - TopicName
+  DYNAMODB_WRITER_LAMBDA_ARN: arn:aws:lambda:eu-west-1:790794229430:function:thundra-workshop-lambda-dynamodb-writer-dev-writer
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ${self:custom.AWS_REGION}
+  lambdaHashingVersion: '20201221'
+
+  environment:
+    AWS_S3_BUCKET_NAME: ${self:custom.AWS_S3_BUCKET_NAME}
+    AWS_SNS_TOPIC_ARN: ${self:custom.AWS_SNS_TOPIC_ARN}
+    DYNAMODB_WRITER_LAMBDA_ARN: ${self:custom.DYNAMODB_WRITER_LAMBDA_ARN}
+
+  iam:
+    role:
+      name: thundra-workshop-lambda-sns-writer-role
+      statements:
+        - Effect: Allow
+          Action:
+            - sns:Publish
+            - sns:Subscribe
+            - s3:GetObject
+
+          Resource: '*'
+functions:
+  text-analyzer:
+    handler: src/index.handler
+    events:
+      - httpApi:
+          path: /
+          method: post
+
+resources:
+  Resources:
+    SnsTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        DisplayName: 'thundra-workshop-lambda-sns-topic'
+        TopicName: 'thundra-workshop-lambda-sns-topic'

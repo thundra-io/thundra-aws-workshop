@@ -1,0 +1,41 @@
+service: thundra-workshop-lambda-webcontent-retriever
+frameworkVersion: '2 || 3'
+
+
+custom:
+  AWS_DYNAMODB_TABLE_NAME: test-table
+  AWS_S3_BUCKET_NAME: my-test-bucket-w
+  AWS_REGION: eu-west-1
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ${self:custom.AWS_REGION}
+  lambdaHashingVersion: '20201221'
+
+  environment:
+    DYNAMODB_TABLE_NAME: ${self:custom.AWS_DYNAMODB_TABLE_NAME}
+    S3_BUCKET_NAME: ${self:custom.AWS_S3_BUCKET_NAME}
+
+  iam:
+    role:
+      name: thundra-workshop-get-content-lambda-role
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:GetObject
+            - dynamodb:GetItem
+            - dynamodb:List
+            - dynamodb:Query
+            - dynamodb:Scan
+
+          Resource: "*"
+    
+functions:
+  retriever: 
+    handler: src/index.handler
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: get

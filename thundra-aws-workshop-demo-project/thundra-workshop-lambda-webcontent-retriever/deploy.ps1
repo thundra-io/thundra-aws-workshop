@@ -1,0 +1,2 @@
+serverless remove
+serverless deploy
