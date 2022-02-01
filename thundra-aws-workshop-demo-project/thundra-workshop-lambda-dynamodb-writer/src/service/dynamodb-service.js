@@ -19,6 +19,7 @@ const createItemToDynamoDB = async (entity) => {
         await dynamodb.put(params).promise();
         return true;
     } catch (error) {
+	console.log(error);
         return false;
     }
 };

@@ -20,7 +20,7 @@ module.exports.handler = async (event, context) => {
         ...analyzedText.toEntity()
     };
 
-    snsService.subscribe();
+    await snsService.subscribe();
     const success = await snsService.writeToSNS(entity);
 
     return {
