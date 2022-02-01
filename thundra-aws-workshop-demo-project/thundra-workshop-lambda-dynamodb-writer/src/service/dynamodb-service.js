@@ -1,13 +1,11 @@
 const AWS = require('aws-sdk');
-const dynamodb = new  AWS.DynamoDB.DocumentClient();
+const dynamodb = new AWS.DynamoDB.DocumentClient();
 
-const { AWS_DYNAMODB_TABLE_NAME, AWS_REGION } = process.env;
-
-AWS.config.update({ region: AWS_REGION || 'eu-west-2' });
+const { AWS_DYNAMODB_TABLE_NAME } = process.env;
 
 const createItemToDynamoDB = async (entity) => {
 
-    if(!AWS_DYNAMODB_TABLE_NAME) 
+    if (!AWS_DYNAMODB_TABLE_NAME)
         return false;
 
     const params = {
@@ -15,7 +13,7 @@ const createItemToDynamoDB = async (entity) => {
         Item: entity
     };
 
-    try{
+    try {
         await dynamodb.put(params).promise();
         return true;
     } catch (error) {
