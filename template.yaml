@@ -43,6 +43,13 @@ Resources:
           AWS_S3_BUCKET_NAME: !Ref SrcBucket
           AWS_SNS_TOPIC_ARN: !Ref SnsTopic
           DYNAMODB_WRITER_LAMBDA_ARN: !GetAtt DynamoDbWriter.Arn #arn:aws:lambda:us-west-2::function:DynamoDbWriter
+      Events:
+        HttpPost:
+          Type: Api
+          Properties:
+            Method: post
+            Path: /
+
   WebContentRetriever:
     Type: AWS::Serverless::Function
     Properties:
@@ -54,7 +61,12 @@ Resources:
           AWS_DYNAMODB_TABLE_NAME:
             !Select [1, !Split ["/", !GetAtt DynamoDBTable.Arn]]
           AWS_S3_BUCKET_NAME: !Ref SrcBucket
-
+      Events:
+        HttpPost:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: get
   SnsTopic:
     Type: AWS::SNS::Topic
     Properties:
