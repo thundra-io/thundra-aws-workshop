@@ -1,77 +1,77 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
-Description: >
-  sam-app
+Description: sam-app
 
-  Sample SAM Template for sam-app
-  
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
     Timeout: 3
 
-
-
 Resources:
   DynamoDbWriter:
-    Type: AWS::Serverless::Function 
+    Type: AWS::Serverless::Function
     Properties:
       CodeUri: thundra-aws-workshop-demo-project/thundra-workshop-lambda-dynamodb-writer/src/
       Handler: index.handler
       Runtime: nodejs14.x
+      Events:
+        SNSEvent:
+          Type: SNS
+          Properties:
+            Topic: !Ref SnsTopic
       Environment:
         Variables:
-          AWS_DYNAMODB_TABLE_NAME: !Select [1, !Split ['/', !GetAtt DynamoDBTable.Arn]]  ####
-      Policies: 
+          AWS_DYNAMODB_TABLE_NAME:
+            !Select [1, !Split ["/", !GetAtt DynamoDBTable.Arn]]
+      Policies:
         - DynamoDBCrudPolicy:
-            TableName: "*"  ####
-    
+            TableName: "*"
+
   SnsWriter:
-    Type: AWS::Serverless::Function 
+    Type: AWS::Serverless::Function
     Properties:
       CodeUri: thundra-aws-workshop-demo-project/thundra-workshop-lambda-sns-writer/src/
       Handler: index.handler
       Runtime: nodejs14.x
-      Policies: 
+      Policies:
         - SNSCrudPolicy:
-            TopicName: '*' 
+            TopicName: "*"
         - S3ReadPolicy:
-            BucketName: '*'
+            BucketName: "*"
       Environment:
         Variables:
-          AWS_S3_BUCKET_NAME: !Ref SrcBucket 
-          DYNAMODB_WRITER_LAMBDA_ARN:  !GetAtt DynamoDbWriter.Arn #arn:aws:lambda:us-west-2::function:DynamoDbWriter 
+          AWS_S3_BUCKET_NAME: !Ref SrcBucket
           AWS_SNS_TOPIC_ARN: !Ref SnsTopic
+          DYNAMODB_WRITER_LAMBDA_ARN: !GetAtt DynamoDbWriter.Arn #arn:aws:lambda:us-west-2::function:DynamoDbWriter
   WebContentRetriever:
-    Type: AWS::Serverless::Function 
+    Type: AWS::Serverless::Function
     Properties:
       CodeUri: thundra-aws-workshop-demo-project/thundra-workshop-lambda-webcontent-retriever/src/
       Handler: index.handler
       Runtime: nodejs14.x
       Environment:
         Variables:
-          AWS_DYNAMODB_TABLE_NAME: !Select [1, !Split ['/', !GetAtt DynamoDBTable.Arn]]
-          AWS_S3_BUCKET_NAME: !Ref SrcBucket 
+          AWS_DYNAMODB_TABLE_NAME:
+            !Select [1, !Split ["/", !GetAtt DynamoDBTable.Arn]]
+          AWS_S3_BUCKET_NAME: !Ref SrcBucket
 
   SnsTopic:
     Type: AWS::SNS::Topic
     Properties:
-      DisplayName: 'thundra-workshop-lambda-sns-topic'
-      TopicName: 'thundra-workshop-lambda-sns-topic'
-      
+      DisplayName: "thundra-workshop-lambda-sns-topic"
+      TopicName: "thundra-workshop-lambda-sns-topic"
 
   DynamoDBTable:
     Type: AWS::DynamoDB::Table
-    Properties: 
-      AttributeDefinitions: 
+    Properties:
+      AttributeDefinitions:
         - AttributeName: id
           AttributeType: S
-      KeySchema: 
+      KeySchema:
         - AttributeName: id
           KeyType: HASH
-      ProvisionedThroughput: 
+      ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
   SrcBucket:
     Type: AWS::S3::Bucket
-
