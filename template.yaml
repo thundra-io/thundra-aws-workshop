@@ -7,31 +7,25 @@ Description: >
   
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
-  
   Function:
-    Environment:
-      Variables:
-        AWS_DYNAMODB_TABLE_NAME: aws-demo-table
-        AWS_S3_BUCKET_NAME: !GetAtt SrcBucket.BucketName # resource SrcBucket does not support attribute type BucketName in Fn::GetAtt : try !ref
-        #AWS_DYNAMODB_WRITER_LAMBDA_ARN: arn:aws:sns:eu-west-2:987062002191:thundra-workshop-lambda-sns-topic
-        AWS_SNS_TOPIC_ARN: arn:aws:sns:eu-west-2:987062002191:thundra-workshop-lambda-sns-topic
     Timeout: 3
 
 
 
 Resources:
-  DynamoDbWriterFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+  DynamoDbWriter:
+    Type: AWS::Serverless::Function 
     Properties:
       CodeUri: thundra-aws-workshop-demo-project/thundra-workshop-lambda-dynamodb-writer/src/
       Handler: index.handler
       Runtime: nodejs14.x
-      #Events:
-        #write:
-          #Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-          #Properties:
-            #Path: /hello
-            #Method: get
+      Environment:
+        Variables:
+          AWS_DYNAMODB_TABLE_NAME: !Select [1, !Split ['/', !GetAtt DynamoDBTable.Arn]]  ####
+      Policies: 
+        - DynamoDBCrudPolicy:
+            TableName: "*"  ####
+    
   SnsWriter:
     Type: AWS::Serverless::Function 
     Properties:
@@ -39,18 +33,25 @@ Resources:
       Handler: index.handler
       Runtime: nodejs14.x
       Policies: 
-        - SNSPublishMessagePolicy:
-            TopicName: '*'   ##specilizate resources
+        - SNSCrudPolicy:
+            TopicName: '*' 
         - S3ReadPolicy:
             BucketName: '*'
-
-
+      Environment:
+        Variables:
+          AWS_S3_BUCKET_NAME: !Ref SrcBucket 
+          DYNAMODB_WRITER_LAMBDA_ARN:  !GetAtt DynamoDbWriter.Arn #arn:aws:lambda:us-west-2::function:DynamoDbWriter 
+          AWS_SNS_TOPIC_ARN: !Ref SnsTopic
   WebContentRetriever:
     Type: AWS::Serverless::Function 
     Properties:
       CodeUri: thundra-aws-workshop-demo-project/thundra-workshop-lambda-webcontent-retriever/src/
       Handler: index.handler
       Runtime: nodejs14.x
+      Environment:
+        Variables:
+          AWS_DYNAMODB_TABLE_NAME: !Select [1, !Split ['/', !GetAtt DynamoDBTable.Arn]]
+          AWS_S3_BUCKET_NAME: !Ref SrcBucket 
 
   SnsTopic:
     Type: AWS::SNS::Topic

@@ -3,7 +3,7 @@ const dynamodb = new  AWS.DynamoDB.DocumentClient();
 
 const { AWS_DYNAMODB_TABLE_NAME, AWS_REGION } = process.env;
 
-AWS.config.update({ region: AWS_REGION || 'eu-west-1' });
+AWS.config.update({ region: AWS_REGION || 'eu-west-2' });
 
 const createItemToDynamoDB = async (entity) => {
 
