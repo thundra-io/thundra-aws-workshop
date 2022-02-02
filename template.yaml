@@ -56,6 +56,11 @@ Resources:
       CodeUri: thundra-aws-workshop-demo-project/thundra-workshop-lambda-webcontent-retriever/src/
       Handler: index.handler
       Runtime: nodejs14.x
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: "*"
+        - S3ReadPolicy:
+            BucketName: "*"
       Environment:
         Variables:
           AWS_DYNAMODB_TABLE_NAME:
