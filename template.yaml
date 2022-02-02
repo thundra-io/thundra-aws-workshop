@@ -82,11 +82,12 @@ Resources:
       Environment:
         Variables:
           THUNDRA_AGENT_LAMBDA_HANDLER: index.handler    ##
-          AWS_DYNAMODB_TABLE_NAME:
+          DYNAMODB_TABLE_NAME:
             !Select [1, !Split ["/", !GetAtt DynamoDBTable.Arn]]
-          AWS_S3_BUCKET_NAME: !Ref SrcBucket
+          S3_BUCKET_NAME: !Ref SrcBucket
       Events:
-        HttpPost:
+        
+        GetContent:
           Type: Api
           Properties:
             Path: /{proxy+}
@@ -111,3 +112,4 @@ Resources:
         WriteCapacityUnits: 5
   SrcBucket:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
