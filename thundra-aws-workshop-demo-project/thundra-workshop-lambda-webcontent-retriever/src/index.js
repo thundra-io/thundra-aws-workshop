@@ -8,7 +8,7 @@ const { TODO_APP, TEXT_ANALYZER } = require('./common/template-resources');
 
 module.exports.handler = async (event, context) => {
 
-    const path = event.rawPath;
+    const { path } = event;
 
     if(path.startsWith('/todo-app')) {
         const html = await getStaticHtmlFile(TODO_APP);
