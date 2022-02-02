@@ -66,28 +66,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
 
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <argLine>-javaagent:thundra-agent-bootstrap.jar -Dthundra.apiKey=12ea2270-76ef-4494-9aae-3ced05c4cfe7 -Dthundra.agent.test.project.id=ed84865c-3ec4-452d-bb61-cb2d16e36ee5</argLine>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-failsafe-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <argLine>-javaagent:thundra-agent-bootstrap.jar -Dthundra.apiKey=12ea2270-76ef-4494-9aae-3ced05c4cfe7 -Dthundra.agent.test.project.id=ed84865c-3ec4-452d-bb61-cb2d16e36ee5</argLine>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>integration-test</goal>-->
-<!--                            <goal>verify</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
 
         </plugins>
     </build>
