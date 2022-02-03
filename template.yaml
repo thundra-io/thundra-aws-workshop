@@ -113,3 +113,15 @@ Resources:
   SrcBucket:
     Type: AWS::S3::Bucket
     DeletionPolicy: Delete
+
+
+Outputs:
+  S3Bucket:
+    Description: "The bucket's name that we will store static web content in it"
+    Value: !Ref SrcBucket
+  WebContentRetrieverApi:
+    Description: "API Gateway endpoint URL for Web Content Retriever function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"
+  SnsWriter:
+    Description: "API Gateway endpoint URL for Sns Writer function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod" 
