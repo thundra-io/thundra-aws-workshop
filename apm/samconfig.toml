@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "thundra-apm-aws-workshop"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1e01km2uzjok3"
+s3_prefix = "thundra-apm-aws-workshop"
+region = "us-west-2"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
