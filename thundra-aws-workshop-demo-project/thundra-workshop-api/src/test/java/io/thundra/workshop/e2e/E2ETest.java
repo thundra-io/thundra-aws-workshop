@@ -73,6 +73,7 @@ class E2ETest {
         String[] minLengthWord = attributes.get(5).findElement(By.tagName("p")).getText().trim().split(", ",-1);
 
 
+        selenium.getScreenShot();
         return new ResponseModel("<id>", userName, content, textLength, clearEmptyArray(mostUsedWord), clearEmptyArray(leastUsedWord),
                 clearEmptyArray(bannedWord), clearEmptyArray(maxLengthWord), clearEmptyArray(minLengthWord));
 
@@ -81,7 +82,7 @@ class E2ETest {
 
     @Test
     @DisplayName("First E2E Test")
-    void firstE2ETest() {
+    void testLocalEntity() {
 
         final int expectedTextLength = 34;
 
@@ -128,7 +129,7 @@ class E2ETest {
 
     @Test
     @DisplayName("Second E2E Test")
-    void secondE2ETest() {
+    void testFirstExample() {
 
         RequestModel request = RequestModel.fromJsonFile("src/test/resources/json/example1-request.json");
         assertNotNull(request, "Failed to read request from json file");
@@ -164,7 +165,7 @@ class E2ETest {
 
     @Test
     @DisplayName("Third E2E Test")
-    void thirdE2ETest() {
+    void testSecondExample() {
 
         RequestModel request = RequestModel.fromJsonFile("src/test/resources/json/example2-request.json");
         assertNotNull(request, "Failed to read request from json file");

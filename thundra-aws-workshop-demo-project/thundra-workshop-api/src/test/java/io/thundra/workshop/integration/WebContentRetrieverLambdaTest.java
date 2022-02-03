@@ -1,8 +1,6 @@
 package io.thundra.workshop.integration;
 
 import io.thundra.workshop.common.Constants;
-import io.thundra.workshop.model.RequestModel;
-import io.thundra.workshop.model.ResponseModel;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,7 +23,7 @@ class WebContentRetrieverLambdaTest extends IntegrationTestBase{
 
     @Test
     @DisplayName("Connect Lambda Test")
-    void connectLambdaTest()  {
+    void testConnectToLambda()  {
         String response = this.getAction("/");
 
         assertNotNull(response, "Cannot connected to Lambda");
@@ -34,7 +32,7 @@ class WebContentRetrieverLambdaTest extends IntegrationTestBase{
 
     @Test
     @DisplayName("Get Todo App Test")
-    void getTodoAppTest() {
+    void testGetTodoAppView() {
         String response = this.getAction("/todo-app");
 
         assertNotNull(response, "Cannot connected to Lambda");
@@ -46,7 +44,7 @@ class WebContentRetrieverLambdaTest extends IntegrationTestBase{
 
     @Test
     @DisplayName("Get Text Analyzer Test")
-    void getTextAnalyzerTest()  {
+    void testGetTextAnalyzerView()  {
         String response = this.getAction("/text-analyzer");
 
         assertNotNull(response, "Cannot connected to Lambda");

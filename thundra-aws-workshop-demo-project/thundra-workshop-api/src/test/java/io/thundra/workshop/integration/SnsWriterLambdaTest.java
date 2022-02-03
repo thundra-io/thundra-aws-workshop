@@ -3,9 +3,7 @@ package io.thundra.workshop.integration;
 import io.thundra.workshop.common.Constants;
 import io.thundra.workshop.model.RequestModel;
 import io.thundra.workshop.model.ResponseModel;
-
 import org.junit.jupiter.api.*;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,14 +18,12 @@ class SnsWriterLambdaTest extends IntegrationTestBase{
             throw new RuntimeException("SNS WRITER URL is not set");
         }
         this.setBaseUrl(Constants.SNS_WRITER_URL);
-
-        System.out.println(this.getBaseUrl());
     }
 
     @Test
     @DisplayName("Lambda Connection Test")
     @Order(1)
-    void connectionTest() {
+    void testConnectToLambda() {
         ResponseModel response = this.postAction(new RequestModel());
         assertNotNull(response, "Cannot connected");
     }
@@ -35,7 +31,7 @@ class SnsWriterLambdaTest extends IntegrationTestBase{
     @Test
     @DisplayName("Send Empty UserName Test")
     @Order(2)
-    void sendEmptyUserNameTest()  {
+    void testSendEmptyUserName()  {
 
         RequestModel requestBody = new RequestModel();
 
@@ -55,7 +51,7 @@ class SnsWriterLambdaTest extends IntegrationTestBase{
     @Test
     @DisplayName("Send Empty Text Test")
     @Order(3)
-    void sendEmptyTextTest() {
+    void testSendEmptyText() {
         RequestModel requestBody = new RequestModel();
 
         requestBody.setText(null);
@@ -74,7 +70,7 @@ class SnsWriterLambdaTest extends IntegrationTestBase{
     @Test
     @DisplayName("Send Valid Text Test")
     @Order(5)
-    void sendValidTextTest(){
+    void testSendValidEntity(){
 
         RequestModel requestBody = new RequestModel();
 
@@ -92,7 +88,7 @@ class SnsWriterLambdaTest extends IntegrationTestBase{
     @Test
     @DisplayName("JSON Example 1 Test")
     @Order(6)
-    void jsonTestExample1() {
+    void testJSONExample1() {
 
         RequestModel mockRequest = RequestModel.fromJsonFile("src/test/resources/json/example1-request.json");
 
@@ -121,7 +117,7 @@ class SnsWriterLambdaTest extends IntegrationTestBase{
     @Test
     @DisplayName("JSON Example 2 Test")
     @Order(7)
-    void jsonTestExample2() {
+    void testJSONExample2() {
 
         RequestModel mockRequest = RequestModel.fromJsonFile("src/test/resources/json/example2-request.json");
 

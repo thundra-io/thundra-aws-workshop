@@ -1,14 +1,14 @@
 package io.thundra.workshop.selenium;
 
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.nio.file.Paths;
-
-import io.thundra.workshop.common.Constants;
 
 public class SeleniumTestBase {
 
@@ -21,10 +21,10 @@ public class SeleniumTestBase {
 
     public SeleniumTestBase() {
         this.osName = System.getProperty("os.name");
-        String driverPath = Paths.get(System.getProperty("user.dir"),
-               "src", "test", "resources", "chromedriver").toString();
+        // String driverPath = Paths.get(System.getProperty("user.dir"),
+        //        "src", "test", "resources", "chromedriver").toString();
 
-        System.setProperty("webdriver.chrome.driver", driverPath + (osName.contains("Windows") ? ".exe": ""));
+        // System.setProperty("webdriver.chrome.driver", driverPath + (osName.contains("Windows") ? ".exe": ""));
 
        capabilities = DesiredCapabilities.chrome();
 
@@ -36,14 +36,17 @@ public class SeleniumTestBase {
 
             ChromeOptions options = new ChromeOptions();
 
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-gpu");
+//            options.addArguments("--no-sandbox");
+//            options.addArguments("--disable-gpu");
             options.addArguments("--window-size=1280,1024");
+            options.addArguments("--headless");
+
 
             String binaryPath;
 
             if(osName.contains("Windows")) {
-                binaryPath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+                binaryPath = Paths.get(System.getenv("ProgramFiles"),
+                        "Google", "Chrome", "Application", "chrome.exe").toString();
             }
             else if(osName.contains("Mac")) {
                 binaryPath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
@@ -60,8 +63,6 @@ public class SeleniumTestBase {
 
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);
             capabilities.setCapability(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("webdriver.chrome.driver"));
-            capabilities.setCapability("chrome.version", "98");
-
 
             this.baseUrl = viewURL;
 
@@ -91,5 +92,10 @@ public class SeleniumTestBase {
 
     public WebDriver getDriver() {
         return driver;
+    }
+
+    public void getScreenShot(){
+        ChromeDriver driver = (ChromeDriver) this.driver;
+        driver.getScreenshotAs(OutputType.FILE);
     }
 }

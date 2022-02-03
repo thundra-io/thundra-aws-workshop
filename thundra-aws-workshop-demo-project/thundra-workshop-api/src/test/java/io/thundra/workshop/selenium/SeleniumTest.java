@@ -51,6 +51,7 @@ class SeleniumTest extends SeleniumTestBase{
         addButton.click();
 
         todoInput.clear();
+        getScreenShot();
     }
 
 
@@ -60,6 +61,7 @@ class SeleniumTest extends SeleniumTestBase{
     void testConnect(){
         String title = driver.getTitle();
         assertEquals("Thundra Todo App", title);
+        getScreenShot();
     }
 
 
@@ -67,6 +69,8 @@ class SeleniumTest extends SeleniumTestBase{
     @DisplayName("Test Add Todo")
     @Order(2)
     void testAddTodo() {
+
+        getScreenShot();
         this.addTodo("Test Todo");
         WebElement todoList = this.getDriver().findElement(new By.ByClassName("todo-list"));
         WebElement todoItem = todoList.findElement(new By.ByTagName("li"));
@@ -86,12 +90,12 @@ class SeleniumTest extends SeleniumTestBase{
         WebElement deleteButton = todoItem.findElements(new By.ByTagName("span")).get(2);
 
         assertNotNull(deleteButton, "Delete button could not found");
-        deleteButton.click();
 
         WebElement todoListAfterDelete = this.getDriver().findElement(new By.ByClassName("todo-list"));
         List<WebElement> todoItems = todoListAfterDelete.findElements(new By.ByTagName("li"));
 
         assertEquals(0, todoItems.size(), "Todo item could not deleted");
+        getScreenShot();
 
     }
 
@@ -111,6 +115,7 @@ class SeleniumTest extends SeleniumTestBase{
         List<WebElement> todoItems = todoListAfterDuplicate.findElements(new By.ByTagName("li"));
 
         assertEquals(2, todoItems.size(), "Todo item could not duplicated");
+        getScreenShot();
     }
 
     @Test
@@ -133,12 +138,14 @@ class SeleniumTest extends SeleniumTestBase{
         assertNotNull(todoItemAfterMark);
         assertTrue(todoItemAfterMark.getAttribute("class").contains("done"),
                 "Todo item could not marked as completed");
+
+        getScreenShot();
     }
 
     @Test
     @DisplayName("Test Clear All Todos")
     @Order(6)
-    void clearAllTodos() throws Exception {
+    void testClearAllTodos() throws Exception {
         this.addTodo("Test Todo1");
         this.addTodo("Test Todo2");
         this.addTodo("Test Todo3");
@@ -154,12 +161,13 @@ class SeleniumTest extends SeleniumTestBase{
         List<WebElement> todoItems = todoListAfterClear.findElements(new By.ByTagName("li"));
 
         assertEquals(0, todoItems.size(), "Todo item could not cleared");
+        getScreenShot();
     }
 
     @Test
     @DisplayName("Test Mark All Todos as Completed")
     @Order(7)
-    void markAllTodosCompleted() {
+    void testMarkAllTodosCompleted() {
         this.addTodo("Test Todo1");
         this.addTodo("Test Todo2");
         this.addTodo("Test Todo3");
@@ -174,13 +182,14 @@ class SeleniumTest extends SeleniumTestBase{
         List<WebElement> todoItems = todoListAfterMark.findElements(new By.ByTagName("li"));
         for(WebElement todoItem : todoItems){
             assertTrue(todoItem.getAttribute("class").contains("done"), "One of items could not marked as completed");
+            getScreenShot();
         }
     }
 
     @Test
     @DisplayName("Test Clear Completed Todos")
     @Order(8)
-    void clearAllCompletedTodos()  {
+    void testClearAllCompletedTodos()  {
         this.addTodo("Test Todo1");
         this.addTodo("Test Todo2");
         this.addTodo("Test Todo3");
@@ -190,6 +199,7 @@ class SeleniumTest extends SeleniumTestBase{
         assertNotNull(markAllBtn, "Mark All button could not found");
 
         markAllBtn.click();
+        getScreenShot();
 
 
         WebElement clearCompletedBtn = this.getDriver().findElement(By.id("clearCompletedBtn"));
@@ -201,6 +211,7 @@ class SeleniumTest extends SeleniumTestBase{
         List<WebElement> todoItems = todoListAfterClear.findElements(new By.ByTagName("li"));
 
         assertEquals(0, todoItems.size(), "Todo item could not cleared");
+        getScreenShot();
     }
 
 }
