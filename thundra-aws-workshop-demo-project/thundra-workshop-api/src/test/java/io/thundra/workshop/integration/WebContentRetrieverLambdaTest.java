@@ -24,7 +24,7 @@ class WebContentRetrieverLambdaTest extends IntegrationTestBase{
     @Test
     @DisplayName("Connect Lambda Test")
     void testConnectToLambda()  {
-        String response = this.getAction("/");
+        String response = this.getAction("/test");
 
         assertNotNull(response, "Cannot connected to Lambda");
         assertEquals("Not Found", response);
@@ -32,7 +32,7 @@ class WebContentRetrieverLambdaTest extends IntegrationTestBase{
 
     @Test
     @DisplayName("Get Todo App Test")
-    void testGetTodoAppView() {
+    void testGetTodoAppView() { 
         String response = this.getAction("/todo-app");
 
         assertNotNull(response, "Cannot connected to Lambda");

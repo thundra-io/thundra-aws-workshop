@@ -90,6 +90,7 @@ class SeleniumTest extends SeleniumTestBase{
         WebElement deleteButton = todoItem.findElements(new By.ByTagName("span")).get(2);
 
         assertNotNull(deleteButton, "Delete button could not found");
+        deleteButton.click();
 
         WebElement todoListAfterDelete = this.getDriver().findElement(new By.ByClassName("todo-list"));
         List<WebElement> todoItems = todoListAfterDelete.findElements(new By.ByTagName("li"));
