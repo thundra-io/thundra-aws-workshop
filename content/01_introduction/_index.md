@@ -7,27 +7,27 @@ pre: "<b>1. </b>"
 
 # Introduction
 
-In this workshop, we're going to launch our distributed application on our local with LocalStack, a tool that emulates AWS services on your machine, and run our tests against it.
+In this workshop, we will deploy a demo application that uses some of AWS resources such as Lambda, SNS, Dynamodb. After we deployed the demo application,
+we will examine the benefits Thundra APM provides.
 
-We'll have three different test scenarios in three different branches for the sake of simplicity and isolation. Then, we'll see the full trace chart of our distributed, end-to-end tests as well as other features that'll help us diagnose the failures. Such as, Time Travel Debugging and Chaos Engineering...
+
 
 ### Prerequisite
 
 We should have the following requirements set up on our computer.
 
+- A configured AWS account
 - AWS CLI
-- Node.js 10.x+
-- Python 3.6+
-- Docker
+- AWS SAM
 
 ### Source Code
 
-The project we're going to use is hosted at [https://github.com/thundra-io/serverless-blog-site-workshop](https://github.com/thundra-io/serverless-blog-site-workshop).
+The project we're going to use is hosted at [www.bombobomba.com](www.google.com).
 
 Let's clone our project and talk about what it is in the next page.
 
 ```bash
 # Change the URL to HTTPS if you don't have SSH configured for git.
-# https://github.com/thundra-io/serverless-blog-site-workshop.git
-git clone git@github.com:thundra-io/serverless-blog-site-workshop.git
+# https://github.com/thundra-io/....
+git clone git@github.com:thundra-io/....
 ```

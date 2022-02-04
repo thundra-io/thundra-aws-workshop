@@ -1,21 +1,21 @@
 ---
-title: "Test Observability with Thundra Foresight"
+title: "Application Monitoring with Thundra APM"
 chapter: true
 weight: 1
 ---
 
-# Test Observability with <br> Thundra Foresight
+# Monitoring Serverless Applications with <br> Thundra APM
 
 ### Welcome
 
-In this workshop you will learn why monitoring your tests matters and how Thundra Foresight elevates your ability to overcome issues that are normally out of your sight.
+In this workshop, you will learn to monitor serverless applications using Thundra APM. By modifying the AWS SAM template of Thundra's demo application, we will deploy this app and see what we are able to do with Thundra APM.
 
 ### Learning Objectives
 
-- Deploy an example app Serverless app to AWS
-- Replay your code execution using Thundra APM
-- Understand why Chaos Engineering matters and how Thundra helps you to implement
-- Be able to see an end-to-end trace chart of your integration tests
+- Understanding the demo application's flow.
+- Integrating Thundra APM to demo app by using AWS-SAM configuration.
+- Deploy the application that integrated with APM to AWS.
+- Monitor your application from the APM console, trigger your functions, explore statistics, etc.
 
 {{% notice warning %}}
 <p style='text-align: left;'>
