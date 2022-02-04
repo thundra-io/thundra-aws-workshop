@@ -36,7 +36,7 @@ module.exports.handler = async (event, context) => {
     }
 
     const bannedWords = await getStaticContent(BANNED_WORDS);
-    const analyzedText = new TextAnalyzer(text, bannedWords || []);
+    const analyzedText = new TextAnalyzer(text, JSON.parse(bannedWords) || []);
 
     const entity = {
         id: Math.random().toString(36).substring(2, 9),
