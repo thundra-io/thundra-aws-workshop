@@ -50,7 +50,7 @@ function RunTests{
     $env:THUNDRA_WORKSHOP_SNS_WRITER_URL = $global:SNS_WRITER_URL
     $env:THUNDRA_WORKSHOP_WEB_RETRIEVER_URL = $global:WEB_CONTENT_RETRIEVER_URL
 
-    mvn clean test -o
+    mvn clean install
 
     $env:THUNDRA_WORKSHOP_SNS_WRITER_URL = $null
     $env:THUNDRA_WORKSHOP_WEB_RETRIEVER_URL = $null
