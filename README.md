@@ -1,5 +1,6 @@
-# AWSWorkshop.io base workshop 
+# <b>Thundra Foresight AWS Workshop</b>
 
-This is a base workshop.  Clone and start from this repo to create your workshop.
-
+## Introduction
+## Working 
+## 
 

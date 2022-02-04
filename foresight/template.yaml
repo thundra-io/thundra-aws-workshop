@@ -1,0 +1,105 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Thundra APM Workshop
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 5
+
+Resources:
+  DynamoDbWriter:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./src/
+      Handler: handlers/dynamodb-writer.handler
+      Runtime: nodejs14.x
+      Events:
+        SNSEvent:
+          Type: SNS
+          Properties:
+            Topic: !Ref SnsTopic
+      Environment:
+        Variables:
+          DYNAMODB_TABLE_NAME: !Ref DynamoDBTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: "*"
+
+  SnsWriter:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./src/
+      Handler: handlers/sns-writer.handler
+      Runtime: nodejs14.x
+      Policies:
+        - SNSCrudPolicy:
+            TopicName: "*"
+        - S3ReadPolicy:
+            BucketName: "*"
+      Environment:
+        Variables:
+          S3_BUCKET_NAME: !Ref SrcBucket
+          SNS_TOPIC_ARN: !Ref SnsTopic
+      Events:
+        HttpPost:
+          Type: Api
+          Properties:
+            Method: post
+            Path: /
+
+  WebContentRetriever:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./src/
+      Handler: handlers/web-retriever.handler
+      Runtime: nodejs14.x
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: "*"
+        - S3ReadPolicy:
+            BucketName: "*"
+      Environment:
+        Variables:
+          DYNAMODB_TABLE_NAME: !Ref DynamoDBTable
+          S3_BUCKET_NAME: !Ref SrcBucket
+      Events:
+        GetContent:
+          Type: Api
+          Properties:
+            Method: get
+            Path: /{proxy+}
+
+  SnsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: "thundra-workshop-lambda-sns-topic"
+      TopicName: "thundra-workshop-lambda-sns-topic"
+
+  DynamoDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+
+  SrcBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
+
+Outputs:
+  S3Bucket:
+    Description: "The bucket's name that we will store static web content in it"
+    Value: !Ref SrcBucket
+  WebContentRetrieverApi:
+    Description: "API Gateway endpoint URL for Web Content Retriever function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"
+  SnsWriter:
+    Description: "API Gateway endpoint URL for Sns Writer function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Text Analysis</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,200;1,300&display=swap");
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: whitesmoke;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .container {
+        box-shadow: 0 10px 20px 1px darkgray;
+        background: rgba(255, 255, 255, 0.9);
+        /* text-align: center */
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 7em auto;
+        height: auto;
+        width: 40%;
+      }
+
+      .entity-content {
+        margin: 4rem;
+        word-wrap: break-word;
+        text-align: center;
+      }
+
+      .attributes {
+        display: flex;
+        flex-direction: column;
+        word-wrap: break-word;
+        padding: 10px;
+      }
+
+      .attribute {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        width: auto;
+        box-shadow: 0px 1px 2px 1px darkgrey;
+      }
+
+      .banned {
+        color: darkred;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h4 style="text-align: center; margin-top: 2rem;">{{ username }}</h4>
+      <div class="entity-content">
+        <p>{{ content }}</p>
+      </div>
+
+      <div class="attributes">
+        <div class="attribute">
+          <b> Text Length</b>&nbsp&nbsp
+          <span>{{ textLength }}</span>
+          characters.
+        </div>
+        <div class="attribute">
+          <b>Most Used Words </b>
+          <p>{{ mostUsedWord }}</p>
+        </div>
+        <div class="attribute">
+          <b>Least Used Words </b>
+          <p>{{ leastUsedWord }}</p>
+        </div>
+
+        <div class="attribute">
+          <b>Banned Words </b>
+          <p class="banned">{{ bannedWord }}</p>
+        </div>
+        <div class="attribute">
+          <b>Max Length Words </b>
+          <p>{{ maxLengthWord }}</p>
+        </div>
+        <div class="attribute">
+          <b>Min Length Words </b>
+          <p>{{ minLengthWord }}</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
