@@ -1,3 +1,11 @@
+
+if((Test-Path "./test/thundra-agent-bootstrap.jar") -eq $false) {
+    
+    Write-Host "Downloading thundra-agent-bootstrap.jar"
+    Invoke-WebRequest -Uri "https://repo.thundra.io/service/local/artifact/maven/redirect?r=thundra-releases&g=io.thundra.agent&a=thundra-agent-bootstrap&v=LATEST" -OutFile "./test/thundra-agent-bootstrap.jar"
+}
+
+
 if ((Test-Path "./test/chromedriver.exe") -eq $false) {
     Write-Host "Chromedriver not found in test folder. Please download suitable version from https://chromedriver.storage.googleapis.com/index.html"
     exit 1

@@ -1,3 +1,10 @@
+
+if [ ! -f "./test/thundra-agent-bootstrap.jar" ]; then
+    echo "thundra-agent-bootstrap.jar is downloading..."
+    wget "https://repo.thundra.io/service/local/artifact/maven/redirect?r=thundra-releases&g=io.thundra.agent&a=thundra-agent-bootstrap&v=LATEST" -O ./test/thundra-agent-bootstrap.jar 
+fi
+
+
 if [ ! -f ./test/chromedriver ]; then
     echo "Chromedriver not found in test folder. Please download suitable version from https://chromedriver.storage.googleapis.com/index.html"
     exit 1
