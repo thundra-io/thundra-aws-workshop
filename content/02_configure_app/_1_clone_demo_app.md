@@ -30,7 +30,7 @@ After cloning the project, your folder structure will look like below.
 <br><br><br><br><br>
 #####  **************  foldertree.png ***********************
 <br><br><br><br><br>
-We can see 3 main item here:
+We can see 3 main directory here:
 
 - **static folder :** In this directory, we have some static files that are needed by our lambda functions. For instance, *bannedwords* file provides the words for SNS service and SnsWriter lambda to filter words in given input, or *todo-app.html* file includes our static web site. We are going to update this to S3 bucket after deploying the application.
 

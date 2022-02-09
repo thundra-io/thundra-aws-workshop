@@ -1,5 +1,5 @@
 ---
-title: "2. Install Demo Application"
+title: "2. Configure Application"
 date: 2022-02-04T13:22:02+03:00
 chapter: true
 weight: 5
