@@ -38,22 +38,8 @@ There are a few changes in themplate.yaml file. We will add the Thundra layer to
 
 
 
-* First, define the *ThundraNodeLayerVersion* and *ThundraAWSAccountNo* in parameters section. So we can get the lambda layer by using them. 
 
-
-
-        Parameters:
-            ThundraAWSAccountNo:
-                Type: Number
-                Default: 269863060030
-            ThundraNodeLayerVersion:
-                Type: Number
-                Default: 105 # Or use any other version
-
-
-
-* Second, get the Thundra Layer in global section, also add the *THUNDRA_APIKEY* environment variable using wer Thundra API key.
-
+* First, set the Thundra Layer in the global section, also add the THUNDRA_APIKEY environment variable using Thundra API key.
 
         Globals:
             Function:
@@ -61,9 +47,9 @@ There are a few changes in themplate.yaml file. We will add the Thundra layer to
                     Variables:
                         THUNDRA_APIKEY: <YOUR-THUNDRA-API-KEY>
                 Layers:
-                - !Sub arn:aws:lambda:${AWS::Region}:${ThundraAWSAccountNo}:layer:thundra-lambda-node-layer:${ThundraNodeLayerVersion}
+                - !Sub arn:aws:lambda:${AWS::Region}:269863060030:layer:thundra-lambda-node-layer:105
 
-* Finally, replace lambda handlers with Thundra lambda handler.
+* Then, replace lambda handlers with Thundra lambda handler.
 
         Resources:
             DynamoDbWriter:
@@ -92,24 +78,14 @@ We integrated the APM to the *DynamoDbWriter* lambda now. Do the final step for 
     Transform: AWS::Serverless-2016-10-31
     Description: AWS Thundra APM Workshop
 
-    Parameters:
-        ThundraAWSAccountNo:
-            Type: Number
-            Default: '269863060030'
-        ThundraNodeLayerVersion:
-            Type: Number
-            Default: '105' 
-
     Globals:
         Function:
             Timeout: 5
             Environment:
-            Variables:
-                THUNDRA_APIKEY: 4e4e5098-2c37-4e31-b6bf-1e21c0c75b73 #<Your-Thundra-Api-Key>
+                Variables:
+                    THUNDRA_APIKEY: 4e4e5098-2c37-4e31-b6bf-1e21c0c75b73 #<YOUR-THUNDRA-API-KEY>
             Layers:
-            - !Sub arn:aws:lambda:${AWS::Region}:${ThundraAWSAccountNo}:layer:thundra-lambda-node-layer:${ThundraNodeLayerVersion}
-
-
+            - !Sub arn:aws:lambda:${AWS::Region}:269863060030:layer:thundra-lambda-node-layer:105
 
 
     Resources:
@@ -228,7 +204,10 @@ Choose the one of the steps below:
 
     Deploy the application and files by running the*make* command below:
 
-    $ <code>make -f deploy.mk</code>
+    ```sh
+    $ make -f deploy.mk
+
+    ```
 
     After answering a few question, application will be deloyed.
 
@@ -239,7 +218,10 @@ Choose the one of the steps below:
 
     *   *First*, deploy the stack:
 
-        $ <code>sam deploy --guided </code>
+        ```sh
+        $ sam deploy --guided
+
+        ```
 
         Outputs of some of our resources will appear when stack deployment is completed.
         
@@ -249,7 +231,10 @@ Choose the one of the steps below:
 
     *   *Second*, we need the S3 bucket name to upload the files. So copy the *value* where *key* is *S3Bucket* from the outputputs. Use it inside the *aws sycn* command below:
 
-        $ <code>  aws s3 sync static/ s3://< S3 BUCKET NAME >/static/</code> 
+        ```sh
+        $ aws s3 sync static/ s3://< S3 BUCKET NAME >/static/
+
+        ```
 
         The 3 uploaded files' logs will appear in the terminal.
 

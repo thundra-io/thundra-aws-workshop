@@ -42,8 +42,11 @@ To do this, we need to get the SNS Lambda's endpoint, in the previous section we
 Then use it inside the command below:
 
 
- $ <code>wget --post-data '{"username":"Demo User","text":"AWS Lambda sample."}' < YOUR LAMBDA ENDPOINT > </code>
 
+```sh
+$ wget --post-data '{"username":"Demo User","text":"AWS Lambda sample."}' < YOUR LAMBDA ENDPOINT > 
+
+```
 
 
 

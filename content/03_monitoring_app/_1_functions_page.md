@@ -14,9 +14,9 @@ The flow that contains Sns Writer and DynamoDB Writer was triggered 27 times and
 
 ![Function Page 15 Minutes](/images/_monitoring/functions_page_15_minutes.png)
 
-For instance, if these functions will keep invoking 27 times every 15 minutes, their cost will be 0.05$ and 0.03$ per month. Also, by changing the time range at the top-right of the page, we can calculate different average costs.
+For instance, if these functions will keep invoking 27 times with an approximately 178ms average duration every 15 minutes, their cost will be 0.05$ and 0.03$ per month. Also, by changing the time range at the top-right of the page, we can calculate different average costs.
 
-For another example below, the time range changed for 1 hour, now we can see the estimated cost for invoking these functions 27 times per hour will cost us 0.01$ for each, per month.
+For another example below, the time range changed for 1 hour, now we can see the estimated cost for invoking these functions 27 times with an approximately 178ms average duration per hour will cost us 0.01$ for each, per month.
 
 ![Function Page 15 Minutes](/images/_monitoring/functions_page_1_hour.png)
 
