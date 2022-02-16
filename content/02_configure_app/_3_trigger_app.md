@@ -20,7 +20,7 @@ Here is the flow that we will interact:
 
 You can invoke your function in different ways. Here we will invoke the SNS Lambda by using its API gateway and using the test section in the AWS console.
 
-#### **Option 1** : Using AWS Console
+#### Option 1 : Using AWS Console
 
 Testing a Lambda function from AWS console is pretty simple,  go to the test section in SNS writer lambda and test the function by using the event below:
 
@@ -30,9 +30,9 @@ Testing a Lambda function from AWS console is pretty simple,  go to the test sec
 
 ![Application Structure](/images/_setting_up/aws_console_test.png)
 
-#### **Option 2**  : Using API Gateway
+#### Option 2  : Using API Gateway
 
-Thanks to the API gateway of SNS Lambda that we added we can invoke our function from using HTTP requests. Here, we will trigger the function by sending a request from the terminal by using *wget*.
+Thanks to the API gateway of SNS Lambda that we added we can invoke our function from using HTTP requests. Here, we will trigger the function by sending a request from the terminal by using *curl*.
 
 To do this, we need to get the SNS Lambda's endpoint, in the previous section we mentioned the outputs of resources that printed to the terminal after the deployment is completed. Get the *value* from where *key* is *SnsWriter* which is the Sns Writer Lambda endpoint.
 
@@ -44,8 +44,7 @@ Then use it inside the command below:
 
 
 ```sh
-$ wget --post-data '{"username":"Demo User","text":"AWS Lambda sample."}' < YOUR LAMBDA ENDPOINT > 
-
+$ curl -d '{"username":"Demo User","text":"AWS Lambda sample."}' < YOUR LAMBDA ENDPOINT >
 ```
 
 

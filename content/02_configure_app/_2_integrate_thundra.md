@@ -21,15 +21,22 @@ APM integration is pretty easy, first we need a Thundra account and Thundra API 
 
 
 ![Apm selection](/images/_setting_up/apm_selection.png)
-<h5>*we can also check Thundra' Foresight and Sidekick products*</h5>
+<h5>*We can also check Thundra' Foresight and Sidekick products*</h5>
 
 
-
-When we enter the Thundra APM home page we will see the projects section in the lower-left corner of the page, route the page to the projects section and wer API key will appear next to wer default project. Copy it and do not share it with anyone.
-
-![Apm selection](/images/_setting_up/apm_get_api_key.gif)
+After navigating the Thundra APM home page we will see the *data source* section in the lower-left corner of the page, route this page, and you will see the source types there. Because we are integrating nodejs lambda functions, select serverless and go to the *nodejs* section.
 
 
+![Get Api Key](/images/_setting_up/get_api_key.gif)
+
+The API key will appear start of the opening page. This page shows the Thundra APM integration with *using layer*, you can also check all other integration options from the [APM docs](https://apm.docs.thundra.io/node.js/nodejs-integration-options).
+
+{{% notice info %}}
+<p style='text-align: left;'>
+
+When you first log in to the Thundra APM console, you will see the integrated example lambda functions. After integrating your first lambda function, these will disappear.
+</p>
+{{% /notice %}}
 
 
 ### 2. Update SAM template
@@ -83,7 +90,7 @@ We integrated the APM to the *DynamoDbWriter* lambda now. Do the final step for 
             Timeout: 5
             Environment:
                 Variables:
-                    THUNDRA_APIKEY: 4e4e5098-2c37-4e31-b6bf-1e21c0c75b73 #<YOUR-THUNDRA-API-KEY>
+                    THUNDRA_APIKEY: <YOUR-THUNDRA-API-KEY>
             Layers:
             - !Sub arn:aws:lambda:${AWS::Region}:269863060030:layer:thundra-lambda-node-layer:105
 

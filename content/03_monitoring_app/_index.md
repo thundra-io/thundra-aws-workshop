@@ -1,10 +1,10 @@
 ---
-title: "3. Monitor Application"
+title: "3. Monitor The Application"
 date: 2022-02-04T13:55:52+03:00
 chapter: true
 ---
 
-## Monitor Application In Thundra APM
+## Monitor The Application In Thundra APM
 
 We deployed the demo applicaiton and integrated Thundra APM to it, now we can explore APM's features. Home page of Thundra APM is the function page and when you log in to APM, the lambda functions which are invoked at least one time will be listed.
 

@@ -1,8 +1,8 @@
 ---
 title: "Architecture"
 date: 2022-02-04T14:02:33+03:00
-weight: 15
-pre: "<b>3.5 </b>"
+weight: 13
+pre: "<b>3.4 </b>"
 chapter: true
 ---
 
@@ -38,10 +38,28 @@ Then, add the text-analyzer keyword at the end of your endpoint and finally add 
 ![Text Analyzer](/images/_monitoring/text_analyzer.png)
 
 
-This lambda read static website files from the S3 bucket and got an item from the dynamo DB, so used some common resources with the SNS Writer Lambda's flow. Now let's go to the architecture page and see what is happening.
+This lambda read static website files from the S3 bucket and got an item from the dynamo DB, so used some common resources with the SNS Writer Lambda's flow.
 
-![Architecture New](/images/_monitoring/architecture_new.png)
+#### Examine Whole Architecture
+
+Now let's go to the architecture page and see what is happening.
+
+![Architecture New](/images/_monitoring/architecture.png)
 
 It is the whole flow scheme of the demo application as you can remember. All invoked resources are visualized by Thundra APM here.
 
+In this image, we see that some connections are thicker and some resource images are bigger than others, which means the thicker connections and bigger resource images are invoked more than others.
+
+#### Resource Details
+
+The architecture page allows you to examine resources, you can inspect invocation details of any resource by clicking its image.
+
+![Architecture Details](/images/_monitoring/architecture_with_resource_details.png)
+
+
+#### Connections
+
+Just as the thickness of these links has meaning, their color also has a meaning. In the example below, we can see the resource fails to access another one and in this scenario, the connections arrow goes red.
+
+![Architecture Error](/images/_monitoring/architecture_with_error.png)
 
