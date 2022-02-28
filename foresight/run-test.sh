@@ -135,3 +135,4 @@ fi
 
 deploy_stack
 run_tests
+delete_stack

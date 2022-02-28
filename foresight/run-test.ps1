@@ -144,4 +144,4 @@ if($global:JSON -ne $null) {
 
 DeployStack
 RunTests
-
+DeleteStack
