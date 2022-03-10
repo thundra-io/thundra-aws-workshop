@@ -14,8 +14,6 @@ In this context, the resource usage change of the Lambda Function is observable 
 
 ![Invocations Summary](/images/_monitoring/invocations_summary.gif)
 
-
-
 ### Trace Chart
 
 There is a trace chart in each invocation, these resource usages can be studied in more detail by selecting any invocation. You can navigate the  trace chart by selecting any invocation.

@@ -6,8 +6,6 @@ pre: "<b>3.3 </b>"
 chapter: true
 ---
 
-
-
 ## Error Inspector
 
 Error inspector page offers you to see all the errors that occurred in your lambda functions without making any extra integration but APM.
@@ -51,5 +49,3 @@ This should return an error, let's check it from the error inspector in APM.
 Here we go, we can examine the *stack trace* of error and all other details or create notification for the repetition of this error:
 
 ![Error Inspector](/images/_monitoring/create_notification.gif)
-
-

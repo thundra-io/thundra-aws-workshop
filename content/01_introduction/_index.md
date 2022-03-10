@@ -9,7 +9,6 @@ pre: "<b>1. </b>"
 
 In this workshop, we will deploy a demo application that uses some of AWS resources such as AWS Lambda, SNS, and DynamoDB. After we deployed the demo application, we will integrate our code with Thundra APM and examine the benefits it brings.
 
-
 ### Prerequisite
 
 Before we start getting our hands dirty, we should set up the necessary stuff to make progress throughout the workshop.
@@ -32,14 +31,4 @@ Before we start getting our hands dirty, we should set up the necessary stuff to
 
 Once these prerequisites are set up and ready, we can clone our source-code and start working.
 
-### Source Code
-
-We'll clone our project to somewhere appropriate in our computer.
-
-```bash
-# Change the URL to HTTPS if you don't have SSH configured for git.
-# https://github.com/thundra-io/....
-git clone git@github.com:thundra-io/....
-```
-
-Great. Let's get going.
+Let's talk about our project's architecture and what we are going to use.

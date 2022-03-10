@@ -1,18 +1,14 @@
 ---
 title: "Thundra Apm Integration"
 date: 2022-02-04T13:24:26+03:00
-weight: 7
+weight: 8
 chapter: true
-pre: "<b>2.2 </b>"
+pre: "<b>2.3 </b>"
 ---
-<style>
-h5 {text-align: center;}
-</style>
-
 
 ## Thundra APM Integration
 
-Now we have the demo application, it is time to deploy it to our AWS account but before deployment, we are gonna integrate Thundra APM. 
+Now we have the demo application, it is time to deploy it to our AWS account but before deployment, we are gonna integrate Thundra APM.
 
 
 ### 1. Get we Thundra Api Key
@@ -62,9 +58,9 @@ There are a few changes in themplate.yaml file. We will add the Thundra layer to
             DynamoDbWriter:
                 Type: AWS::Serverless::Function
                 Properties:
-                    Handler: thundra_handler.wrapper 
+                    Handler: thundra_handler.wrapper
                     ..
-                    
+
 
 
 
@@ -77,7 +73,7 @@ There are a few changes in themplate.yaml file. We will add the Thundra layer to
                     Variables:
                         THUNDRA_AGENT_LAMBDA_HANDLER: handlers/dynamodb-writer.handler
                 ..
-                
+
 
 We integrated the APM to the *DynamoDbWriter* lambda now. Do the final step for our other 2 lambda function. After doing all, template.yaml will look like this:
 
@@ -100,7 +96,7 @@ We integrated the APM to the *DynamoDbWriter* lambda now. Do the final step for 
             Type: AWS::Serverless::Function
             Properties:
                 CodeUri: ./src/
-                Handler: thundra_handler.wrapper               
+                Handler: thundra_handler.wrapper
                 Runtime: nodejs14.x
                 Events:
                     SNSEvent:
@@ -119,7 +115,7 @@ We integrated the APM to the *DynamoDbWriter* lambda now. Do the final step for 
             Type: AWS::Serverless::Function
             Properties:
                 CodeUri: ./src/
-                Handler: thundra_handler.wrapper               
+                Handler: thundra_handler.wrapper
                 Runtime: nodejs14.x
                 Policies:
                     - SNSCrudPolicy:
@@ -142,7 +138,7 @@ We integrated the APM to the *DynamoDbWriter* lambda now. Do the final step for 
             Type: AWS::Serverless::Function
             Properties:
                 CodeUri: ./src/
-                Handler: thundra_handler.wrapper               
+                Handler: thundra_handler.wrapper
                 Runtime: nodejs14.x
                 Policies:
                     - DynamoDBCrudPolicy:
@@ -201,8 +197,8 @@ We integrated the APM to the *DynamoDbWriter* lambda now. Do the final step for 
 ### 3. Deploy the application
 
 
- In this application, we are using some static files such as our HTML site that will be uploaded to s3, so after deployment of our stack, we need to upload these files to our newly created s3 bucket. 
- 
+ In this application, we are using some static files such as our HTML site that will be uploaded to s3, so after deployment of our stack, we need to upload these files to our newly created s3 bucket.
+
 To do this, there is a makefile that deploys the stack and uploads static files to S3  by running the *makefile* command. Also deploying the application and uploading files are be able to do by using *AWS CLI*.
 
 Choose the one of the steps below:
@@ -221,7 +217,7 @@ Choose the one of the steps below:
 
 *   **Using AWS CLI Manually**
 
-    Instead of this, deploy the application manually is pretty simple too. 
+    Instead of this, deploy the application manually is pretty simple too.
 
     *   *First*, deploy the stack:
 
@@ -231,7 +227,7 @@ Choose the one of the steps below:
         ```
 
         Outputs of some of our resources will appear when stack deployment is completed.
-        
+
 
         ![Deployment Output](/images/_setting_up/deployment_output.png)
         <h5>*Deployment Outputs*</h5>
@@ -246,4 +242,4 @@ Choose the one of the steps below:
         The 3 uploaded files' logs will appear in the terminal.
 
 
-Both of these ways doing the same job, you will get the same outputs whichever you follow. 
+Both of these ways doing the same job, you will get the same outputs whichever you follow.

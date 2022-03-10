@@ -6,7 +6,6 @@ pre: "<b>3.4 </b>"
 chapter: true
 ---
 
-
 ## Architecture
 
 The architecture page visualizes the whole structure of the projects and Lambda Functions that use the Thundra API key we get from the projects page in previous steps of this workshop.
@@ -62,4 +61,3 @@ The architecture page allows you to examine resources, you can inspect invocatio
 Just as the thickness of these links has meaning, their color also has a meaning. In the example below, we can see the resource fails to access another one and in this scenario, the connections arrow goes red.
 
 ![Architecture Error](/images/_monitoring/architecture_with_error.png)
-
