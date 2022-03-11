@@ -1,8 +1,6 @@
 ---
-title: "Trigger Lambda Functions"
-date: 2022-02-04T13:25:25+03:00
+title: "Testing the demo project"
 weight: 9
-pre: "<b>2.4 </b>"
 chapter: true
 ---
 

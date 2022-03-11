@@ -1,6 +1,6 @@
 ---
-title: "3. Monitor The Application"
-date: 2022-02-04T13:55:52+03:00
+title: "Thundra APM in Details"
+# date: 2022-02-04T13:55:52+03:00
 chapter: true
 ---
 
@@ -22,8 +22,6 @@ Under this section we will examine the subtitels below:
 -   Invocations of Lambda Functions.
 -   Trace chart and trace map of a Lambda Function.
 -   Summary of the project on the dashboard page.
--   Inspecting the errors that integrated Lambda Functions occurred. 
+-   Inspecting the errors that integrated Lambda Functions occurred.
 -   Setting alerts for desired constraints.
 -   General architecture and trace map of the whole project.
-
-

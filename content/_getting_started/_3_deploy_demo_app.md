@@ -1,9 +1,9 @@
 ---
 title: "Deploy the demo project"
-date: 2022-02-04T13:21:12+03:00
+# date: 2022-02-04T13:21:12+03:00
 weight: 7
 chapter: true
-pre: "<b>2.2 </b>"
+# pre: "<b>2.2 </b>"
 ---
 
 ### Stack Deployment

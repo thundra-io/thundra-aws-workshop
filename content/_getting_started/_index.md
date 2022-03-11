@@ -1,8 +1,8 @@
 ---
-title: "Introduction"
+title: "Getting Started"
 chapter: true
-weight: 3
-pre: "<b>1. </b>"
+weight: 2
+# pre: "<b>1. </b>"
 ---
 
 # Introduction

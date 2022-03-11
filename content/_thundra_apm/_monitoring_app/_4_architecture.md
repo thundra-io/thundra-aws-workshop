@@ -1,8 +1,8 @@
 ---
 title: "Architecture"
-date: 2022-02-04T14:02:33+03:00
+# date: 2022-02-04T14:02:33+03:00
 weight: 13
-pre: "<b>3.4 </b>"
+# pre: "<b>3.4 </b>"
 chapter: true
 ---
 
