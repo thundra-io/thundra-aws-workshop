@@ -33,7 +33,7 @@ When you first log in to the Thundra APM console, you will see some sample data.
 
 There are a few changes we need to do in the `template.yaml` file. We will add the Thundra layer to our Lambda functions and set the API key that we got earlier.
 
-There are multiple ways to integrate Thundra to your functions. You can see them in our [docs](https://apm.docs.thundra.io/node.js/nodejs-integration-options). For this example, we'll be using Thundra layer and do the handler switch via a `NODE_OPTION` parameter. Since we'll be setting this in our global settings, it'll affect both Lambda functions.
+There are multiple ways to integrate Thundra to your functions. You can see them in our [docs](https://apm.docs.thundra.io/node.js/nodejs-integration-options). For this example, we'll be using Thundra layer and do the handler switch via a `NODE_OPTION` parameter. Since we'll be setting this in our global settings, it'll affect all of our 3 Lambda functions.
 
 So, let's change our `Global` settings in the `template.yaml` to the following.
 
