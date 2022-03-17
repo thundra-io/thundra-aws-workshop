@@ -10,11 +10,11 @@ chapter: true
 
 In this section, we will understand the deployment template and our project structure. It is pretty simple todo-app that uses aws resurces.
 
-Firstly, we will clone the demo application and examine the lambda functions briefly. The part that interests us is what these lambda functions do instead of how these lambda functions work. We already talked about what these functions do in the previous section briefly.
+Firstly, we will clone the demo application and examine the Lambda functions briefly. The part that interests us is what these Lambda functions do instead of how these Lambda functions work. We already talked about what these functions do in the previous section briefly.
 
-Then, we will integrate Thundra APM to our lambda functions by using the SAM configuration of Thundra APM.
+Then, we will integrate Thundra APM to our Lambda functions by using the SAM configuration of Thundra APM.
 
-Finally, we simply will trigger our lambda functions and check what will we see in the Thundra console.
+Finally, we simply will trigger our Lambda functions and check what will we see in the Thundra console.
 
 Now lets start with cloning the demo project.
 
@@ -35,8 +35,8 @@ The most important file in the project is the `template.yaml` file which defines
 Let's deploy our application to AWS first and then we'll move on with the Thundra APM integration.
 
 <!--
-- **static folder :** In this directory, we have some static files that are needed by our lambda functions. For instance, *bannedwords* file provides the words for SNS service and SnsWriter lambda to filter words in given input, or *todo-app.html* file includes our static web site. We are going to update this to S3 bucket after deploying the application.
+- **static folder :** In this directory, we have some static files that are needed by our Lambda functions. For instance, *bannedwords* file provides the words for SNS service and SnsWriter Lambda to filter words in given input, or *todo-app.html* file includes our static web site. We are going to update this to S3 bucket after deploying the application.
 
-- **src folder :** In this directory we have our lambda functions that writed in *node.js* codes. As we mentioned, we don't need to know how these functions work but you can examine if you wonder.
+- **src folder :** In this directory we have our Lambda functions that writed in *node.js* codes. As we mentioned, we don't need to know how these functions work but you can examine if you wonder.
 
-- **template.yaml :** It is an extension of the AWS CloudFormation template, we will create a deployment stack for our application by using this. Considering our deployment stack is using AWS SAM template and our lambda functions are written in node.js, we will integrate Thundra APM by following steps in related docs. You can also check other integration options from Thundra APM [docs](https://apm.docs.thundra.io/node.js/nodejs-integration-options). -->
+- **template.yaml :** It is an extension of the AWS CloudFormation template, we will create a deployment stack for our application by using this. Considering our deployment stack is using AWS SAM template and our Lambda functions are written in node.js, we will integrate Thundra APM by following steps in related docs. You can also check other integration options from Thundra APM [docs](https://apm.docs.thundra.io/node.js/nodejs-integration-options). -->

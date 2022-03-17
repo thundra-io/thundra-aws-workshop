@@ -34,3 +34,5 @@ https://<YOUR_ENDPOINT_ID>.execute-api.us-west-2.amazonaws.com/Prod/text-analyze
 When we visit the post detail page, we should see page that looks like the following:
 
 ![Post Detail Page](/images/_testing/post-detail.png)
+
+Great. We can confirm that our application is up and running. Let's add some observability to it via Thundra APM.

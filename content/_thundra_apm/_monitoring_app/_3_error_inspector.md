@@ -8,7 +8,7 @@ chapter: true
 
 ## Error Inspector
 
-Error inspector page offers you to see all the errors that occurred in your lambda functions without making any extra integration but APM.
+Error inspector page offers you to see all the errors that occurred in your Lambda functions without making any extra integration but APM.
 
 You can inspect where errors occurred inside the code, how many times this error in this function occurred or you can set a notification for this error.
 
@@ -17,7 +17,7 @@ You can inspect where errors occurred inside the code, how many times this error
 
 When you first navigate to this page, you will see the list of occurred errors in your functions if any exists, you can expand these errors to inspect details. Probably there are no errors on this page in our case, let's create some errors.
 
-We can easily get an error from SNS Writer Lambda. If you check this lambda function's handler in *src/handlers/sns-writer.js*, you see this method that converts JSON to an object in the 13th code line:
+We can easily get an error from SNS Writer Lambda. If you check this Lambda function's handler in *src/handlers/sns-writer.js*, you see this method that converts JSON to an object in the 13th code line:
 
     const body = JSON.parse(event.body);
 

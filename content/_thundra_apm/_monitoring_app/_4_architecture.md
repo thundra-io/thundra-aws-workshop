@@ -21,9 +21,9 @@ As you can remember from the introduction of this workshop, the demo application
 
 ### Trigger Web Content Retriever Lambda
 
-We need 2 things to trigger Web Content Retriever Lambda, first the endpoint of lambda, the second, the id of one of the rows we wrote in dynamo DB.
+We need 2 things to trigger Web Content Retriever Lambda, first the endpoint of Lambda, the second, the id of one of the rows we wrote in dynamo DB.
 
- You can get the endpoint of lambda from the deployment output of the sam template we already mentioned, or you can simply go to this function's API gateway from the AWS console.
+ You can get the endpoint of Lambda from the deployment output of the sam template we already mentioned, or you can simply go to this function's API gateway from the AWS console.
 
 For any item id, go to the dynamo DB table and get one of the IDs.
 
@@ -37,7 +37,7 @@ Then, add the text-analyzer keyword at the end of your endpoint and finally add 
 ![Text Analyzer](/images/_monitoring/text_analyzer.png)
 
 
-This lambda read static website files from the S3 bucket and got an item from the dynamo DB, so used some common resources with the SNS Writer Lambda's flow.
+This Lambda read static website files from the S3 bucket and got an item from the dynamo DB, so used some common resources with the SNS Writer Lambda's flow.
 
 #### Examine Whole Architecture
 

@@ -1,5 +1,5 @@
 ---
-title: "Time Travel Debugging*"
+title: "Time Travel Debugging"
 # date: 2022-02-04T13:55:43+03:00
 weight: 14
 # pre: "<b>3.5 </b>"
@@ -11,7 +11,7 @@ TimeTravel Debugging makes it possible to travel back in time to previous states
 
 You can easily activate time travel debugging by adding the variable below to environment variables.
 
-    thundra_agent_lambda_trace_instrument_traceableConfig: handlers/sns-writer.*[traceLineByLine=true]
+    thundra_agent_Lambda_trace_instrument_traceableConfig: handlers/sns-writer.*[traceLineByLine=true]
 
 It activates time travel debugging for only *SNS Writer Lambda*. You can modify this for any function you want to activate time travel debugging in.
 
