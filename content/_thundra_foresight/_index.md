@@ -27,14 +27,14 @@ Thundra Foresight instruments the CI process to provide unmatched visibility int
 
 #### What will you learn?
 
-* Why should you use Thundra Foresight?
+* Why you should use Thundra Foresight.
 * How to use Thundra Foresight to monitor and troubleshoot your CI workflows.
 * How to use Thundra Foresight to monitor and troubleshoot your CI tests.
 * Integrate Foresight to GitHub and watch CI workflow.
 * Integrate Foresight to demo project and monitor unit, integration, e2e and selenium tests.
 
 
-#### Who benefit from the workshop?
+#### Who can benefits from the workshop?
 * Developers
 * QA Engineers
 * Test Automation Engineers
