@@ -24,10 +24,10 @@ This will return a response with the blog post object that has an ID similar to 
 
 ```
 
-Let's use the ID of this document and visit the following URL. Make sure to change the ID part to your post's ID.
+Let's use the ID of this document and visit the **SNS Writer** endpoint. Make sure to change the ID part to your post's ID.
 
 ```text
-https://<YOUR_ENDPOINT_ID>.execute-api.us-west-2.amazonaws.com/Prod/text-analyzer/kmpdfce
+https://<SNSWRITER_ENDPOINT>/kmpdfce
 
 ```
 
