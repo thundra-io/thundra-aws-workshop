@@ -1,21 +1,31 @@
 ---
-title: "Application Monitoring with Thundra APM"
+title: "Monitoring with Thundra"
 chapter: true
 weight: 1
 ---
 
-# Monitoring Serverless Applications with <br> Thundra APM
+# Monitoring with Thundra
 
 ### Welcome
 
-In this workshop, you will learn to monitor serverless applications using Thundra APM. By modifying the AWS SAM template of Thundra's demo application, we will deploy this app and see what we are able to do with Thundra APM.
+In this workshop, you will learn to monitor serverless applications using **Thundra APM** as well as your CI pipelines and tests with **Thundra Foresight**.
 
 ### Learning Objectives
 
-- Understanding the demo application's flow.
-- Integrating Thundra APM to demo app by using AWS-SAM configuration.
-- Deploy the application that integrated with APM to AWS.
-- Monitor your application from the APM console, trigger your functions, explore statistics, etc.
+#### Thundra APM
+
+- Deploy the demo project to AWS
+- Integrate the demo project with Thundra APM
+- Monitor the application on Thundra APM Console
+
+#### Thundra Foresight
+
+- Deploy the demo project to AWS
+- Connect Thundra Foresight to your GitHub account (Optional)
+- Fork the demo project to your GitHub account (Optional)
+- Run the GitHub action and observe your CI runs on Thundra Foresight (Optional)
+- Integrate the demo project with Thundra Foresigth
+- Monitor your test runs on Thundra Foresight Console
 
 {{% notice warning %}}
 <p style='text-align: left;'>
