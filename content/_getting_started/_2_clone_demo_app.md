@@ -1,9 +1,7 @@
 ---
 title: "Clone the demo project"
-# date: 2022-02-04T13:21:12+03:00
 weight: 6
 chapter: true
-# pre: "<b>2.1 </b>"
 ---
 
 ### Source Code

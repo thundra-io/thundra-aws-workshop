@@ -2,7 +2,6 @@
 title: "Getting Started"
 chapter: true
 weight: 2
-# pre: "<b>1. </b>"
 ---
 
 # Introduction

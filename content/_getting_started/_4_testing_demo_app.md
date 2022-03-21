@@ -1,9 +1,7 @@
 ---
 title: "Testing the demo project"
-# date: 2022-02-04T13:21:12+03:00
 weight: 7
 chapter: true
-# pre: "<b>2.3 </b>"
 ---
 
 When we first visit the **WebContentRetrieverApi** URL in the stack's output, it'll return a **Not Found** page as expected since we haven't created any post yet. So, let's change that.

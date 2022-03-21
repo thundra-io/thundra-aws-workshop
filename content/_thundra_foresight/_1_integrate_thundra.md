@@ -1,9 +1,7 @@
 ---
 title: "Thundra Foresight Integration"
-# date: 2022-02-04T13:24:26+03:00
 weight: 8
 chapter: true
-# pre: "<b>2.3 </b>"
 ---
 
 # Thundra Foresight Integration
@@ -12,10 +10,11 @@ chapter: true
 
 1. Visit Thundra Foresight website: https://foresight.thundra.io/
 
-2. Login with your Foresight account
+2. Login with your Thundra account
 ![Foresight Login Page](/images/_foresight/_integration/foresight-login.png)
 
-3. Then select the **Use Foresight** option
+3. Select **Use Foresight** option
+![Thundra Start](/images/_setting_up/thundra-start.png)
 
 4. Now click the **Connect repositories** button
 ![Connect Repository Button](/images/_foresight/_integration/connect-repositories.png)
@@ -25,7 +24,7 @@ chapter: true
 
 ---
 
-## Integrate the Project with Foresight 
+## Integrate the Project with Foresight
 
 {{% notice info %}}
 
@@ -64,7 +63,7 @@ If you don't have any repository, please fork the repository ➡️ [Demo Reposi
 
 ---
 
-## Monitoring 
+## Monitoring
 After choosing the workflow, you can see the detailed traces in the Thundra Foresight dashboard.
 ![Detailed Workflow](/images/_foresight/_integration/project-integration-monitoring.png)
 

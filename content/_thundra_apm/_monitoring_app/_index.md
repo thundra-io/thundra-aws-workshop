@@ -1,7 +1,6 @@
 ---
 title: "Thundra APM in Details"
 weight: 10
-# date: 2022-02-04T13:55:52+03:00
 chapter: true
 ---
 

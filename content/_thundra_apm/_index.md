@@ -2,7 +2,6 @@
 title: "Thundra APM"
 chapter: true
 weight: 3
-# pre: "<b>1. </b>"
 ---
 
 ## Thundra APM
@@ -29,4 +28,3 @@ Thundra APM provides automated instrumentation and distrubuted tracing for your 
 * DevOps Teams
 * SRE Teams
 * Engineering Managers
-

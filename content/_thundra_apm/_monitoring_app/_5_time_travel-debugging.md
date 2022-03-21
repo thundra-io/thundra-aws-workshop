@@ -1,8 +1,6 @@
 ---
 title: "Time Travel Debugging"
-# date: 2022-02-04T13:55:43+03:00
 weight: 14
-# pre: "<b>3.5 </b>"
 chapter: true
 ---
 
