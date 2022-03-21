@@ -24,7 +24,7 @@ In this workshop, you will learn to monitor serverless applications using **Thun
 - Connect Thundra Foresight to your GitHub account (Optional)
 - Fork the demo project to your GitHub account (Optional)
 - Run the GitHub action and observe your CI runs on Thundra Foresight (Optional)
-- Integrate the demo project with Thundra Foresigth
+- Integrate the demo project with Thundra Foresight
 - Monitor your test runs on Thundra Foresight Console
 
 {{% notice warning %}}
