@@ -12,6 +12,16 @@ weight: 3
 
 Thundra Foresight instruments the CI process to provide unmatched visibility into the build process. Foresight applies all modern observability techniques with its combination and utilization of metrics, logs, and traces, as well as including live debugging capabilities. This provides all the information necessary to troubleshoot problems and optimize the process in a single tool.
 
+
+#### What will you learn?
+
+* Why you should use Thundra Foresight.
+* How to use Thundra Foresight to monitor and troubleshoot your CI workflows.
+* How to use Thundra Foresight to monitor and troubleshoot your CI tests.
+* Integrate Foresight to GitHub and watch CI workflow.
+* Integrate Foresight to demo project and monitor unit, integration, e2e and selenium tests.
+
+
 #### Why should you use Thundra Foresight?
 
 * It’s Platform-Agnostic: No Configurations Required!
@@ -22,13 +32,6 @@ Thundra Foresight instruments the CI process to provide unmatched visibility int
 * Multiple runtime and test frameworks support for autonomous testing.
 * UI testing and screenshot capturing feature.
 
-#### What will you learn?
-
-* Why you should use Thundra Foresight.
-* How to use Thundra Foresight to monitor and troubleshoot your CI workflows.
-* How to use Thundra Foresight to monitor and troubleshoot your CI tests.
-* Integrate Foresight to GitHub and watch CI workflow.
-* Integrate Foresight to demo project and monitor unit, integration, e2e and selenium tests.
 
 #### Who can benefits from the workshop?
 * Developers

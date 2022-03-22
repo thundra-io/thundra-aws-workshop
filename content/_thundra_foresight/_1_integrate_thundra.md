@@ -1,6 +1,6 @@
 ---
-title: "Thundra Foresight Integration"
-weight: 8
+title: "Integrate with Github Actions"
+weight: 1
 chapter: true
 ---
 
@@ -55,16 +55,25 @@ If you don't have any repository, please fork the repository ➡️ [Demo Reposi
 8.  Now you will redirect to the Thundra Foresight web page. You can select the repositories you want to watch. Then, click **Start Watching.**
 ![Configure Repos In Foresight](/images/_foresight/_integration/project-select-foresight-repo.png)
 
-9. Then you should re-run the GitHub Actions workflow of the repositories you selected. Then, you can see the traces in the Thundra Foresight dashboard.
-![Select Project on Dashboard](/images/_foresight/_integration/project-foresight-dashboard.png)
+{{% notice info %}}
 
-10. You can see the workflow traces in the Thundra Foresight dashboard.
-![Select Workflow](/images/_foresight/_integration/project-select-workflow.png)
+**Note:** First you cannot see workflow runs in the Foresight dashboard. Therefore, you must run a workflow in the GitHub Actions at least once.
+
+{{% /notice %}}
+
 
 ---
 
 ## Monitoring
-After choosing the workflow, you can see the detailed traces in the Thundra Foresight dashboard.
+
+1. Open the Thundra Foresight dashboard and select the project you created above.
+![Select Project on Dashboard](/images/_foresight/_integration/project-foresight-dashboard.png)
+
+2. You can see the workflows on the dashnoard. Click the workflow name to see the traces.
+![Select Workflow](/images/_foresight/_integration/project-select-workflow.png)
+
+
+3. After choosing the workflow, you can see the detailed traces in the Thundra Foresight dashboard.
 ![Detailed Workflow](/images/_foresight/_integration/project-integration-monitoring.png)
 
 #### 1. Repository and Workflow Information Section

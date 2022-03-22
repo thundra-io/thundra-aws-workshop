@@ -10,7 +10,13 @@ Thundra APM provides automated instrumentation and distrubuted tracing for your 
 
 
 
-#### Why should you use Thundra Foresight?
+#### What will you learn?
+* Why you should use Thundra APM
+* How to integrate Thundra APM to your AWS Lambda Functions.
+* What Thundra APM offers for monitoring serverless functions.
+
+
+#### Why should you use Thundra APM?
 * Offers rapidly troubleshoot and debug applications quickly.
 * Tells application health separate from underlying infrastructure health.
 * Helps understand and manage costs.
@@ -18,10 +24,6 @@ Thundra APM provides automated instrumentation and distrubuted tracing for your 
 * Visualizes your serverless applications' architectures.
 * Presents all of your serverless applications' details in a place.
 
-#### What will you learn?
-* Why you should use Thundra APM
-* How to integrate Thundra APM to your AWS Lambda Functions.
-* What Thundra APM offers for monitoring serverless functions.
 
 #### Who can benefits from the workshop?
 * Developers
