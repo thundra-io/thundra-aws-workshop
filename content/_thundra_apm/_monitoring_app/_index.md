@@ -4,7 +4,7 @@ weight: 10
 chapter: true
 ---
 
-## Monitor The Application In Thundra APM
+## Monitor Your Application In Thundra APM
 
 We deployed the demo applicaiton and integrated Thundra APM to it, now we can explore APM's features. Home page of Thundra APM is the function page and when you log in to APM, the Lambda functions which are invoked at least one time will be listed.
 
