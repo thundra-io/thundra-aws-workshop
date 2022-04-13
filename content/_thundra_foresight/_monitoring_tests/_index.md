@@ -6,16 +6,14 @@ weight: 2
 
 ## Monitor Your Tests In Thundra Foresight
 
-In this section, you will learn how to run local tests on your local machine as well as on GitHub Action. Then, how to configure Thundra Foresight to run tests on your local machine. Finally, you can monitor the test results.
+We've forked the example repository and added our Foresight project credentials as repository secrets. The tests we've run in the previous section should have arrived to Foresight dashboard by now.
 
+For the sake of this workshop, tests should fail at first and we should see something similar to the following. We designed the tests to give you examples of each kind of test and the chance to explore yourself.
 
+In the following sections, we'll see what each section is and try to quickly define everything and expect the further interaction with them from you.
 
-[Configure Foresight with Local Tests](/_thundra_foresight/_monitoring_tests/_1_configure.html)
+![Foresight Result](/images/_foresight/_integration/foresight-result.png)
 
-[Monitor Unit Tests](/_thundra_foresight/_monitoring_tests/_2_monitoring_unit_tests.html)
+As seen from the images above, we now have both action results and test results.
 
-[Monitor Integration Tests](/_thundra_foresight/_monitoring_tests/_3_monitoring_integration_test.html)
-
-[Monitor Selenium Tests](/_thundra_foresight/_monitoring_tests/_4_monitoring_selenium_tests.html)
-
-[Monitor E2E Tests](/_thundra_foresight/_monitoring_tests/_5_monitoring_e2e_tests.html)
+Let's dive into their details.
