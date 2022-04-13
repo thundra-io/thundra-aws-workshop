@@ -1,22 +1,34 @@
 ---
-title: "AWS Modernization Workshop"
+title: "Monitoring with Thundra"
 chapter: true
 weight: 1
 ---
 
-# AWS Modernization Workshop
+# Monitoring with Thundra
 
 ### Welcome
 
-In this workshop you will learn why DevOps is a pattern for modernization and how to use patterns to release features and functionality at a faster pace.
+In this workshop, you will learn to monitor serverless applications using **Thundra APM** as well as your CI pipelines and tests with **Thundra Foresight**.
 
 ### Learning Objectives
-- Deploy Cloud9 as an IDE for completing workshop exercises.
-- How DevOps patterns help to release features and functionality faster.
-- Best practices for implementing 2 pizza team pipelines.
+
+#### Thundra APM
+
+- Deploy the demo project to AWS
+- Integrate the demo project with Thundra APM
+- Monitor the application on Thundra APM Console
+
+#### Thundra Foresight
+
+- Deploy the demo project to AWS
+- Connect Thundra Foresight to your GitHub account (Optional)
+- Fork the demo project to your GitHub account (Optional)
+- Run the GitHub action and observe your CI runs on Thundra Foresight (Optional)
+- Integrate the demo project with Thundra Foresight
+- Monitor your test runs on Thundra Foresight Console
 
 {{% notice warning %}}
 <p style='text-align: left;'>
-The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.
+The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how Thundra helps you to monitor various AWS services. These examples are not intended for use in production environments.
 </p>
 {{% /notice %}}
