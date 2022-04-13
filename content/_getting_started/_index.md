@@ -21,12 +21,7 @@ Before we start getting our hands dirty, we should set up the necessary stuff to
     - We'll be hosting our source-code on [GitHub](https://github.com/).
 3. GitHub Account
     - See [GitHub](https://github.com/).
-    - This part is only necessary if you want to follow the Thundra Foresight CI monitoring section.
-4. Java
-    - See [Java Download Options](https://www.java.com/en/download/help/download_options.html/).
-    - See [SDKMAN](https://sdkman.io/) for an easy setup.
-    - Version 8 will suffice.
-    - This part is only necessary if you want to follow the Thundra Foresight Selenium and test monitoring section.
+    - This part is only necessary if you want to follow the Thundra Foresight section.
 4. AWS Account
     - See [Amazon AWS Console](https://aws.amazon.com/).
     - We'll be using mostly **serverless** resources and we'll clear everything we've created at the end of our workshop. However, beware that betwen these times, our usage of these resources will be billable. Although, it should not be more than a few dollars. Of course, it's still depending on our usage.
